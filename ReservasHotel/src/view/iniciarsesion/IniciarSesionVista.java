@@ -3,21 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package view.iniciarsesion;
+
 
 /**
  *
  * @author adri
  */
-public class IniciarSesion extends javax.swing.JFrame {
+public class IniciarSesionVista extends javax.swing.JFrame {
 
+    private ControllerIniciarSesion controller;
     /**
      * Creates new form IniciarSesion
      */
     
-    public IniciarSesion() {
+    public IniciarSesionVista() {
         
         initComponents();
+        controller = new ControllerIniciarSesion(this);
     }
 
     /**
@@ -45,9 +48,20 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         lbl_usuario.setText("Usuario:");
 
+        txt_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_usuarioActionPerformed(evt);
+            }
+        });
+
         lbl_password.setText("Contraseña:");
 
         btn_iniciar.setText("Iniciar");
+        btn_iniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_iniciarActionPerformed(evt);
+            }
+        });
 
         lbl_olvidePassword.setForeground(new java.awt.Color(0, 53, 194));
         lbl_olvidePassword.setText("Olvide mi contraseña");
@@ -138,6 +152,21 @@ public class IniciarSesion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_usuarioActionPerformed
+
+    private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
+        controller.iniciarSesion();
+    }//GEN-LAST:event_btn_iniciarActionPerformed
+
+    public String getJTextFieldUsername(){
+        return txt_usuario.getText();
+    }
+    
+    public String getJTextFieldPassword(){
+        return txt_password.getText();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_iniciar;

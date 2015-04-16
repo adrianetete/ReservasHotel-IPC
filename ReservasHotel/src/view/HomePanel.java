@@ -4,12 +4,12 @@ package view;
  *
  * @author adri
  */
-public class Home extends javax.swing.JPanel {
+public class HomePanel extends javax.swing.JPanel {
 
     /**
      * Creates new form Home
      */
-    public Home() {
+    public HomePanel() {
         initComponents();
     }
 
@@ -98,9 +98,9 @@ public class Home extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_reserva)
                     .addComponent(btn_modifDatos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

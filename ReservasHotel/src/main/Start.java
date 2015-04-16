@@ -1,7 +1,10 @@
 package main;
 
+import java.util.ArrayList;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import model.Reserva;
+import model.Usuario;
 
 /**
  *
@@ -11,10 +14,17 @@ public class Start {
     
     public static Home homeState;
     public static IniciarSesion iniciarSesionState;
+    public static PerfilUsuario perfilUsuarioState;
+
+    //private static ArrayList<Reserva> reservas;
+    
+    private static ArrayList<Usuario> listaUsuarios;
+
+    private static Usuario usuario;
     
     public static void main(String[] args) {
         
-         try {
+        try {
             // Set System L&F
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } 
@@ -30,7 +40,47 @@ public class Start {
         catch (IllegalAccessException e) {
            // handle exception
         }
-         
-         iniciarSesionState = new IniciarSesion();
+        listaUsuarios = new ArrayList<Usuario>();
+        listaUsuarios.add(new Usuario("garciparedes", "Sergio", "Garcia Prado"));
+        listaUsuarios.add(new Usuario("adrianete", "Adrian", "Calvo Rojo"));
+        listaUsuarios.add(new Usuario("perico", "Perico", "de los Palotes"));
+
+         homeState = new Home();
+    }
+    
+    public static Home getStateMachineHome() {
+        return homeState; 
+    }
+    
+    
+    public static IniciarSesion getStateMachineIniciarSesion() {
+        return iniciarSesionState; 
+    }
+    
+    
+    public static PerfilUsuario getStateMachinePerfilUsuario() {
+        return perfilUsuarioState; 
+    }
+    
+    public static boolean iniciadaSesion(){
+        return usuario != null;
+    }
+
+    public static void hacerReserva() {
+        if (!iniciadaSesion()){ 
+            iniciarSesion();    
+        }
+    }
+
+    private static void iniciarSesion() {
+        new IniciarSesion();
+    }
+
+    public static ArrayList<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+    
+    public static void setUsuario(Usuario usuarioNuevo){
+        usuario = usuarioNuevo;
     }
 }

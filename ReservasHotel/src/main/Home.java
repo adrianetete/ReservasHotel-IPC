@@ -20,11 +20,9 @@ public class Home {
         java.awt.EventQueue.invokeLater( 
             new Runnable() {
                 public void run() {
-                currentState = new view.Home();
+                currentState = new view.home.HomeVista();
                 currentState.setVisible(true);
             } 
         });
     }
- 
-    
 }

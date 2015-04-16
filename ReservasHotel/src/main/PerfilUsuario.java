@@ -5,28 +5,26 @@
  */
 package main;
 
-import java.util.ArrayList;
 import javax.swing.JFrame;
-import model.Usuario;
+import view.perfilusuario.PerfilUsuarioVista;
 
 /**
  *
- * @author adri
+ * @author garciparedes
  */
-public class IniciarSesion {
-
+public class PerfilUsuario {
+    
+    
     private JFrame currentState;
 
-    public IniciarSesion() {
+    public PerfilUsuario() {
                
         java.awt.EventQueue.invokeLater( 
             new Runnable() {
                 public void run() {
-                currentState = new view.iniciarsesion.IniciarSesionVista(); 
+                currentState = new PerfilUsuarioVista(); 
                 currentState.setVisible(true);
             } 
         });
     }
-    
-    
 }

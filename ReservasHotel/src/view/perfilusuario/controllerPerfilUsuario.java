@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package view.perfilusuario;
 
 /**
  *
- * @author adri
+ * @author garciparedes
  */
-public class ControllerHome {
+public class controllerPerfilUsuario {
     
 }
