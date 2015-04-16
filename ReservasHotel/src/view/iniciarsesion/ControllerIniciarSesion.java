@@ -6,7 +6,6 @@
 package view.iniciarsesion;
 
 import java.util.ArrayList;
-import main.PerfilUsuario;
 import main.Start;
 import model.Usuario;
 
@@ -22,8 +21,7 @@ public class ControllerIniciarSesion {
         this.vista = vista;
     }
 
-    void iniciarSesion() {
-        System.out.println("prueba");
+    public void iniciarSesion() {
         String username = vista.getJTextFieldUsername();
         String password = vista.getJTextFieldPassword();
         
@@ -39,6 +37,10 @@ public class ControllerIniciarSesion {
                 Start.getStateMachineHome().update();
             }
         }
+    }
+
+    public void cancel() {
+        Start.getStateMachineIniciarSesion().close();
     }
     
 }

@@ -41,6 +41,7 @@ public class IniciarSesionVista extends javax.swing.JFrame {
         btn_iniciar = new javax.swing.JButton();
         lbl_olvidePassword = new javax.swing.JLabel();
         lbl_ayuda = new javax.swing.JLabel();
+        jButtonCancell = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +70,13 @@ public class IniciarSesionVista extends javax.swing.JFrame {
         lbl_ayuda.setForeground(new java.awt.Color(0, 53, 194));
         lbl_ayuda.setText("Ayuda");
 
+        jButtonCancell.setText("Cancelar");
+        jButtonCancell.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancellActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelInicioSesionLayout = new javax.swing.GroupLayout(panelInicioSesion);
         panelInicioSesion.setLayout(panelInicioSesionLayout);
         panelInicioSesionLayout.setHorizontalGroup(
@@ -80,8 +88,10 @@ public class IniciarSesionVista extends javax.swing.JFrame {
                         .addComponent(lbl_olvidePassword)
                         .addGap(18, 18, 18)
                         .addComponent(lbl_ayuda)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                        .addComponent(btn_iniciar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(btn_iniciar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonCancell))
                     .addGroup(panelInicioSesionLayout.createSequentialGroup()
                         .addGroup(panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_usuario)
@@ -107,7 +117,8 @@ public class IniciarSesionVista extends javax.swing.JFrame {
                 .addGroup(panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_iniciar)
                     .addComponent(lbl_olvidePassword)
-                    .addComponent(lbl_ayuda))
+                    .addComponent(lbl_ayuda)
+                    .addComponent(jButtonCancell))
                 .addContainerGap())
         );
 
@@ -117,8 +128,8 @@ public class IniciarSesionVista extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelInicioSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panelInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,21 +143,17 @@ public class IniciarSesionVista extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 63, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 63, Short.MAX_VALUE))
         );
 
         pack();
@@ -160,6 +167,10 @@ public class IniciarSesionVista extends javax.swing.JFrame {
         controller.iniciarSesion();
     }//GEN-LAST:event_btn_iniciarActionPerformed
 
+    private void jButtonCancellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancellActionPerformed
+        controller.cancel();
+    }//GEN-LAST:event_jButtonCancellActionPerformed
+
     public String getJTextFieldUsername(){
         return txt_usuario.getText();
     }
@@ -170,6 +181,7 @@ public class IniciarSesionVista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_iniciar;
+    private javax.swing.JButton jButtonCancell;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_ayuda;
     private javax.swing.JLabel lbl_olvidePassword;

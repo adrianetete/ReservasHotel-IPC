@@ -12,6 +12,9 @@ import main.Start;
  * @author garciparedes
  */
 public class HomeVista extends javax.swing.JFrame {
+    
+    private static final String INICIAR_SESION = "Iniciar Sesión";
+    private static final String CERRAR_SESION = "Cerrar Sesión";
 
     private ControllerHome controller;
     /**
@@ -27,10 +30,11 @@ public class HomeVista extends javax.swing.JFrame {
         jPanelUserInfo.setVisible(Start.iniciadaSesion());
         
         if (Start.iniciadaSesion()){
-            setJLabelNombre(Start.getUsuario().getNombre());
-            setJLabelApellidos(Start.getUsuario().getApellidos());
-            setJLabelReservas(String.valueOf(Start.getUsuario().getNumReservas()));
-
+            setJLabelNombreText(Start.getUsuario().getNombre());
+            setJLabelApellidosText(Start.getUsuario().getApellidos());
+            setJLabelReservasText(String.valueOf(Start.getUsuario().getNumReservas()));
+            setJButtonIniciarSesionText(CERRAR_SESION);
+            
         }
     }
 
@@ -211,16 +215,20 @@ public class HomeVista extends javax.swing.JFrame {
         controller.iniciarSesion();
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
-    public void setJLabelNombre(String value){
+    public void setJLabelNombreText(String value){
         jLabelNombre.setText(value);
     }
     
-    public void setJLabelApellidos(String value){
+    public void setJLabelApellidosText(String value){
         jLabelApellidos.setText(value);
     }
     
-    public void setJLabelReservas(String value){
+    public void setJLabelReservasText(String value){
         jLabelReservas.setText(value);
+    }
+    
+    public void setJButtonIniciarSesionText(String value){
+        jButtonIniciarSesion.setText(value);
     }
     
     
