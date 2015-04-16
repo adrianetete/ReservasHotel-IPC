@@ -25,11 +25,11 @@ public class ControllerHome {
     }
 
     public void hacerReserva() {
-        Start.hacerReserva();
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void verReservas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Start.listaReservas();
     }
 
     void iniciarSesion() {

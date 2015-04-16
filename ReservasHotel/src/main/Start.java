@@ -14,6 +14,8 @@ public class Start {
     
     public static Home homeState;
     public static IniciarSesion iniciarSesionState;
+    public static ListaReservas listaReservasState;
+
     public static PerfilUsuario perfilUsuarioState;
 
     //private static ArrayList<Reserva> reservas;
@@ -62,7 +64,7 @@ public class Start {
         return perfilUsuarioState; 
     }
     
-    public static boolean iniciadaSesion(){
+    public static boolean isLoged(){
         return usuario != null;
     }
 
@@ -71,14 +73,25 @@ public class Start {
     }
 
     public static void iniciarSesion() {
-        if (!iniciadaSesion()){ 
+        if (!isLoged()){ 
             iniciarSesionState = new IniciarSesion();    
-        }    
+        }
     }
     
     public static void loginSucceed() { 
         
         iniciarSesionState.close();
+    }
+    
+    public static void listaReservas(){
+        if (!isLoged()){
+            iniciarSesion();
+        }
+        
+        if (listaReservasState == null){
+            listaReservasState = new ListaReservas();
+        }
+        
     }
 
     public static ArrayList<Usuario> getListaUsuarios() {

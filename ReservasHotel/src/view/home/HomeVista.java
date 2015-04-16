@@ -27,9 +27,9 @@ public class HomeVista extends javax.swing.JFrame {
     }
     
     public void update(){
-        jPanelUserInfo.setVisible(Start.iniciadaSesion());
+        jPanelUserInfo.setVisible(Start.isLoged());
         
-        if (Start.iniciadaSesion()){
+        if (Start.isLoged()){
             setJLabelNombreText(Start.getUsuario().getNombre());
             setJLabelApellidosText(Start.getUsuario().getApellidos());
             setJLabelReservasText(String.valueOf(Start.getUsuario().getNumReservas()));

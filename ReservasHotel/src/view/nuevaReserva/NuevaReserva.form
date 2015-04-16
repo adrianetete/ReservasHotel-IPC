@@ -56,7 +56,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lbl_codPostal" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbl_codPostal" alignment="0" pref="257" max="32767" attributes="0"/>
                       <Component id="lbl_direccion" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbl_nombre" alignment="0" max="32767" attributes="0"/>
                   </Group>
