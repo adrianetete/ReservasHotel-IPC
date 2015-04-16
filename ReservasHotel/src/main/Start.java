@@ -67,13 +67,18 @@ public class Start {
     }
 
     public static void hacerReserva() {
-        if (!iniciadaSesion()){ 
-            iniciarSesion();    
-        }
+        
     }
 
-    private static void iniciarSesion() {
-        new IniciarSesion();
+    public static void iniciarSesion() {
+        if (!iniciadaSesion()){ 
+            iniciarSesionState = new IniciarSesion();    
+        }    
+    }
+    
+    public static void loginSucceed() { 
+        
+        iniciarSesionState.close();
     }
 
     public static ArrayList<Usuario> getListaUsuarios() {
@@ -82,5 +87,9 @@ public class Start {
     
     public static void setUsuario(Usuario usuarioNuevo){
         usuario = usuarioNuevo;
+    }
+    
+    public static Usuario getUsuario(){
+        return usuario;
     }
 }

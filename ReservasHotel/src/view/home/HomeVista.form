@@ -26,25 +26,37 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jButtonHacerReserva" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="jButtonVerReservas" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="100" max="32767" attributes="0"/>
+                              <Component id="jButtonIniciarSesion" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jButtonExit" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonHacerReserva" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButtonVerReservas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
-                      <Component id="jButtonExit" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabelEstadoSesion" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="jLabelEstadoSesion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jPanelUserInfo" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,15 +65,23 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="185" max="32767" attributes="0"/>
+              <EmptySpace pref="191" max="32767" attributes="0"/>
               <Component id="jLabelEstadoSesion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonHacerReserva" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonVerReservas" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonExit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonIniciarSesion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                  <Component id="jPanelUserInfo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="102" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -82,7 +102,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonVerReservas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ver Reserva"/>
+        <Property name="text" type="java.lang.String" value="Ver Reservas"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVerReservasActionPerformed"/>
@@ -100,6 +120,99 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Sesi&#xf3;n no iniciada"/>
       </Properties>
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanelUserInfo">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Mis datos"/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lbl_reservas" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lbl_apellidos" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lbl_nombre" alignment="1" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelNombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelApellidos" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelReservas" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="357" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_apellidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_reservas" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelReservas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lbl_nombre">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nombre:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_apellidos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Apellidos:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_reservas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N&#xba;Reservas Actuales:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelNombre">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelApellidos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelReservas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jLabel3"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="jButtonIniciarSesion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIniciarSesionActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -6,6 +6,7 @@
 package main;
 
 import javax.swing.JFrame;
+import view.home.HomeVista;
 
 /**
  *
@@ -24,5 +25,9 @@ public class Home {
                 currentState.setVisible(true);
             } 
         });
+    }
+
+    public void update() {
+        ((HomeVista) currentState).update();
     }
 }

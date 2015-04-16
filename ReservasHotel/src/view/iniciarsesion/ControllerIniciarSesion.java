@@ -35,6 +35,8 @@ public class ControllerIniciarSesion {
             if (usuario.getUsername().equals(username) 
                     && usuario.getPassw().equals(password)){
                 Start.setUsuario(usuario);
+                Start.getStateMachineIniciarSesion().close();
+                Start.getStateMachineHome().update();
             }
         }
     }

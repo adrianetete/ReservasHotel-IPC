@@ -5,6 +5,8 @@
  */
 package view.home;
 
+import main.Start;
+
 /**
  *
  * @author garciparedes
@@ -18,6 +20,18 @@ public class HomeVista extends javax.swing.JFrame {
     public HomeVista() {
         initComponents();
         controller = new ControllerHome(this);
+        update();        
+    }
+    
+    public void update(){
+        jPanelUserInfo.setVisible(Start.iniciadaSesion());
+        
+        if (Start.iniciadaSesion()){
+            setJLabelNombre(Start.getUsuario().getNombre());
+            setJLabelApellidos(Start.getUsuario().getApellidos());
+            setJLabelReservas(String.valueOf(Start.getUsuario().getNumReservas()));
+
+        }
     }
 
     /**
@@ -34,6 +48,14 @@ public class HomeVista extends javax.swing.JFrame {
         jButtonVerReservas = new javax.swing.JButton();
         jButtonExit = new javax.swing.JButton();
         jLabelEstadoSesion = new javax.swing.JLabel();
+        jPanelUserInfo = new javax.swing.JPanel();
+        lbl_nombre = new javax.swing.JLabel();
+        lbl_apellidos = new javax.swing.JLabel();
+        lbl_reservas = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelApellidos = new javax.swing.JLabel();
+        jLabelReservas = new javax.swing.JLabel();
+        jButtonIniciarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +68,7 @@ public class HomeVista extends javax.swing.JFrame {
             }
         });
 
-        jButtonVerReservas.setText("Ver Reserva");
+        jButtonVerReservas.setText("Ver Reservas");
         jButtonVerReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVerReservasActionPerformed(evt);
@@ -62,6 +84,62 @@ public class HomeVista extends javax.swing.JFrame {
 
         jLabelEstadoSesion.setText("Sesión no iniciada");
 
+        jPanelUserInfo.setBorder(javax.swing.BorderFactory.createTitledBorder("Mis datos"));
+
+        lbl_nombre.setText("Nombre:");
+
+        lbl_apellidos.setText("Apellidos:");
+
+        lbl_reservas.setText("NºReservas Actuales:");
+
+        jLabelNombre.setText("jLabel1");
+
+        jLabelApellidos.setText("jLabel2");
+
+        jLabelReservas.setText("jLabel3");
+
+        javax.swing.GroupLayout jPanelUserInfoLayout = new javax.swing.GroupLayout(jPanelUserInfo);
+        jPanelUserInfo.setLayout(jPanelUserInfoLayout);
+        jPanelUserInfoLayout.setHorizontalGroup(
+            jPanelUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUserInfoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_reservas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_apellidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbl_nombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanelUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNombre)
+                    .addComponent(jLabelApellidos)
+                    .addComponent(jLabelReservas))
+                .addContainerGap(357, Short.MAX_VALUE))
+        );
+        jPanelUserInfoLayout.setVerticalGroup(
+            jPanelUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUserInfoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_nombre)
+                    .addComponent(jLabelNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_apellidos)
+                    .addComponent(jLabelApellidos))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelUserInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_reservas)
+                    .addComponent(jLabelReservas))
+                .addContainerGap())
+        );
+
+        jButtonIniciarSesion.setText("Iniciar Sesion");
+        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarSesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,35 +147,49 @@ public class HomeVista extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabelTitle)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButtonHacerReserva)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonVerReservas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(jButtonExit)))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonHacerReserva)
+                                .addGap(9, 9, 9)
+                                .addComponent(jButtonVerReservas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                                .addComponent(jButtonIniciarSesion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonExit))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabelTitle)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelEstadoSesion)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabelEstadoSesion)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanelUserInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabelTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addComponent(jLabelEstadoSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonHacerReserva)
                     .addComponent(jButtonVerReservas)
-                    .addComponent(jButtonExit))
+                    .addComponent(jButtonExit)
+                    .addComponent(jButtonIniciarSesion))
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(102, 102, 102)
+                    .addComponent(jPanelUserInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(102, Short.MAX_VALUE)))
         );
 
         pack();
@@ -115,11 +207,36 @@ public class HomeVista extends javax.swing.JFrame {
         controller.hacerReserva();
     }//GEN-LAST:event_jButtonHacerReservaActionPerformed
 
+    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+        controller.iniciarSesion();
+    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
+
+    public void setJLabelNombre(String value){
+        jLabelNombre.setText(value);
+    }
+    
+    public void setJLabelApellidos(String value){
+        jLabelApellidos.setText(value);
+    }
+    
+    public void setJLabelReservas(String value){
+        jLabelReservas.setText(value);
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonHacerReserva;
+    private javax.swing.JButton jButtonIniciarSesion;
     private javax.swing.JButton jButtonVerReservas;
+    private javax.swing.JLabel jLabelApellidos;
     private javax.swing.JLabel jLabelEstadoSesion;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelReservas;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPanel jPanelUserInfo;
+    private javax.swing.JLabel lbl_apellidos;
+    private javax.swing.JLabel lbl_nombre;
+    private javax.swing.JLabel lbl_reservas;
     // End of variables declaration//GEN-END:variables
 }

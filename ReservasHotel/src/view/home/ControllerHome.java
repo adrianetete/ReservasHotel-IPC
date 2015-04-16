@@ -31,5 +31,9 @@ public class ControllerHome {
     public void verReservas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    void iniciarSesion() {
+        Start.iniciarSesion();
+    }
     
 }

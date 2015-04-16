@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author adri
@@ -18,6 +20,8 @@ public class Usuario {
     
     private String username;
     private String passw;
+    
+    private ArrayList<Reserva> listaReservas;
 
     public Usuario(String username, String nombre, String apellidos) {
         this.username = username;
@@ -25,6 +29,8 @@ public class Usuario {
 
         this.nombre = nombre;
         this.apellidos = apellidos;
+        
+        this.listaReservas = new ArrayList<Reserva>();
     }
     
     public String getNombre() {
@@ -43,6 +49,14 @@ public class Usuario {
         return passw;
     }
     
+    public ArrayList<Reserva> getListaReservas(){
+        return listaReservas;
+    }
+    
+    public int getNumReservas(){
+        return getListaReservas().size();
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -58,5 +72,8 @@ public class Usuario {
         this.passw = passw;
     }
     
-    
+    public void addReserva(Reserva reserva){
+        getListaReservas().add(reserva);
+    }
+
 }
