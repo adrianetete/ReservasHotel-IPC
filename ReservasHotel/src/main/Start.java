@@ -1,6 +1,10 @@
 package main;
 
+import enums.TipoEstancia;
+import enums.TipoHabitacion;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import model.Reserva;
@@ -43,11 +47,44 @@ public class Start {
            // handle exception
         }
         listaUsuarios = new ArrayList<Usuario>();
-        listaUsuarios.add(new Usuario("garciparedes", "Sergio", "Garcia Prado"));
+        Usuario garciparedes = new Usuario("garciparedes", "Sergio", "Garcia Prado");
+        
+        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
+                , (GregorianCalendar) GregorianCalendar.getInstance()
+                , TipoEstancia.SA
+                , TipoHabitacion.DOBLEDEUSOINDIVIDUAL)
+        );
+        
+        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
+                , (GregorianCalendar) GregorianCalendar.getInstance()
+                , TipoEstancia.PC
+                , TipoHabitacion.SUPERIOR)
+        );
+        
+        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
+                , (GregorianCalendar) GregorianCalendar.getInstance()
+                , TipoEstancia.AD
+                , TipoHabitacion.SUITE)
+        );
+        
+        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
+                , (GregorianCalendar) GregorianCalendar.getInstance()
+                , TipoEstancia.MP
+                , TipoHabitacion.INDIVIDUAL)
+        );
+        
+        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
+                , (GregorianCalendar) GregorianCalendar.getInstance()
+                , TipoEstancia.MP
+                , TipoHabitacion.INDIVIDUAL)
+        );
+        
+        listaUsuarios.add(garciparedes);
         listaUsuarios.add(new Usuario("adrianete", "Adrian", "Calvo Rojo"));
         listaUsuarios.add(new Usuario("perico", "Perico", "de los Palotes"));
 
-         homeState = new Home();
+        usuario = garciparedes;
+        homeState = new Home();
     }
     
     public static Home getStateMachineHome() {
@@ -75,6 +112,9 @@ public class Start {
     public static void iniciarSesion() {
         if (!isLoged()){ 
             iniciarSesionState = new IniciarSesion();    
+        } else {
+            usuario = null;
+            homeState.update();
         }
     }
     
@@ -84,13 +124,14 @@ public class Start {
     }
     
     public static void listaReservas(){
+        
         if (!isLoged()){
             iniciarSesion();
+        } else {
+                listaReservasState = new ListaReservas();
         }
         
-        if (listaReservasState == null){
-            listaReservasState = new ListaReservas();
-        }
+        
         
     }
 

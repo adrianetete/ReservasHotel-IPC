@@ -33,8 +33,9 @@ public class HomeVista extends javax.swing.JFrame {
             setJLabelNombreText(Start.getUsuario().getNombre());
             setJLabelApellidosText(Start.getUsuario().getApellidos());
             setJLabelReservasText(String.valueOf(Start.getUsuario().getNumReservas()));
-            setJButtonIniciarSesionText(CERRAR_SESION);
-            
+            setJButtonIniciarSesionText(CERRAR_SESION); 
+        } else {
+            setJButtonIniciarSesionText(INICIAR_SESION);
         }
     }
 

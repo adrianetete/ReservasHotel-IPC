@@ -27,4 +27,12 @@ public class ListaReservas {
             } 
         });
     }
+
+    public void close() {
+        currentState.setVisible(false);
+    }
+    public void show(){         
+        
+        currentState.setVisible(true);
+    }
 }

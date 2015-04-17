@@ -23,4 +23,9 @@ public enum TipoHabitacion {
         this.name = name;
     }
     
+    @Override
+    public String toString(){
+        return name;
+    }
+    
 }

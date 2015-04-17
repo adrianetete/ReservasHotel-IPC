@@ -7,6 +7,8 @@ package model;
 
 import enums.TipoEstancia;
 import enums.TipoHabitacion;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -31,6 +33,37 @@ public class Reserva {
         this.tipoEstancia = tipoEstancia;
         this.tipoHabitacion = tipoHabitacion;
     }
+    
+    public Object[] toArray(){
+        Object[] objectArray = {getFechaEntradaString()
+                , getFechaSalidaString()
+                , getTipoEstanciaString()
+                , getTipoHabitacionString()
+        };
+        return objectArray;
+    }
+        
+    public String getFechaEntradaString(){
+        SimpleDateFormat timeFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String time = timeFormat.format(fechaEntrada.getTime());
+        return time;
+    }
+    
+    public String getFechaSalidaString(){
+        SimpleDateFormat timeFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String time = timeFormat.format(fechaSalida.getTime());
+        return time;
+    }
+    
+    public String getTipoEstanciaString(){
+        return tipoEstancia.toString();
+    }
+    
+    public String getTipoHabitacionString(){
+        return tipoHabitacion.toString();
+
+    }
+    
     
     
 }
