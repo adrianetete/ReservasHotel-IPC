@@ -6,6 +6,8 @@
 package main;
 
 import javax.swing.JFrame;
+import view.nuevaReserva.ReservasDisponiblesVista;
+import view.nuevaReserva.NuevaReserva;
 
 /**
  *
@@ -13,26 +15,46 @@ import javax.swing.JFrame;
  */
 public class CrearReserva {
     
-    private JFrame currentState;
+    //private JFrame currentState;
+    
+    private NuevaReserva nuevaReservaState;
+    private ReservasDisponiblesVista reservasDisponiblesVistaState; 
 
     public CrearReserva() {
         
         java.awt.EventQueue.invokeLater( 
             new Runnable() {
                 public void run() {
-                currentState = new view.nuevaReserva.NuevaReserva(); 
-                currentState.setVisible(true);
+                nuevaReservaState = new view.nuevaReserva.NuevaReserva(); 
+                nuevaReservaState.setVisible(true);
             } 
         });
     }
     
+    public void buscarReservasDisponibles(){
+        nuevaReservaState.setVisible(false);
+        
+        if (reservasDisponiblesVistaState == null){
+            System.out.println("Hola");
+            
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        reservasDisponiblesVistaState = new ReservasDisponiblesVista();
+                        reservasDisponiblesVistaState.setVisible(true);
+
+                } 
+            });
+        }
+
+    }
+    
     public void close() {
         
-        currentState.setVisible(false);
+        nuevaReservaState.setVisible(false);
     }
     public void show(){         
         
-        currentState.setVisible(true);
+        nuevaReservaState.setVisible(true);
     }
     
 }

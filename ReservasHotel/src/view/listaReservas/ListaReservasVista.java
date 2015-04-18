@@ -5,6 +5,7 @@
  */
 package view.listaReservas;
 
+import view.utils.TableModel;
 import main.Start;
 
 /**

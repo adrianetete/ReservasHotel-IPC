@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view.nuevaReserva;
+package view.utils;
 
 /**
  *
@@ -23,7 +23,7 @@ public class DatePicker{
     private static final String[] HEADER_DAYS = { "Do", "Lu", "Ma", "Mie", "Ju", "Vi", "Sa" };
 
     GregorianCalendar gregorianCalendar = (GregorianCalendar) GregorianCalendar.getInstance();
-    JLabel l = new JLabel("", JLabel.CENTER);
+    JLabel jLabelMonthYear = new JLabel("", JLabel.CENTER);
     int day;
     JDialog dialog;
     JButton[] button = new JButton[42];
@@ -38,7 +38,7 @@ public class DatePicker{
         //String[] header = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
 
         JPanel calendario = new JPanel(new GridLayout(7, 7));
-        calendario.setPreferredSize(new Dimension(400, 240));
+        calendario.setPreferredSize(new Dimension(150, 150));
 
         for (int i = 0; i < labels.length; i++){
             labels[i] = new JLabel();
@@ -64,7 +64,9 @@ public class DatePicker{
             });
             calendario.add(button[i]);
         }
-        JPanel controls = new JPanel(new GridLayout(1, 3));
+        JPanel controls = new JPanel(new GridLayout(1, 4));
+        JPanel header = new JPanel(new GridLayout(2, 1));
+
 
         // Last year button
         JButton lastYear = new JButton("<<");
@@ -86,8 +88,7 @@ public class DatePicker{
         });
         controls.add(previous);
 
-        // Selected Date @ popup
-        controls.add(l);
+        
 
         // Next month button
         JButton next = new JButton(">");
@@ -109,7 +110,12 @@ public class DatePicker{
         });
         controls.add(nextYear);
         
-        dialog.add(controls, BorderLayout.NORTH);
+        header.add(controls,BorderLayout.NORTH);
+        header.add(jLabelMonthYear,BorderLayout.SOUTH);
+
+        // Selected Date @ popup
+        //controls.add(jLabelMonthYear);
+        dialog.add(header, BorderLayout.NORTH);
         dialog.add(calendario, BorderLayout.CENTER);
         dialog.pack();
         dialog.setLocationRelativeTo(parent);
@@ -126,7 +132,7 @@ public class DatePicker{
         }
 
         
-        SimpleDateFormat sdf = new java.text.SimpleDateFormat("MMMM yyyy");
+        SimpleDateFormat sdf = new java.text.SimpleDateFormat("MMMM 'de' yyyy");
         
         int dayOfWeek = gregorianCalendar.get(GregorianCalendar.DAY_OF_WEEK);
         int daysInMonth = gregorianCalendar.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);
@@ -135,7 +141,7 @@ public class DatePicker{
             button[x].setText("" + day);
         }
 
-        l.setText(sdf.format(gregorianCalendar.getTime()));
+        jLabelMonthYear.setText(sdf.format(gregorianCalendar.getTime()));
         dialog.setTitle("Date Picker");
         dialog.revalidate();
         dialog.repaint();
