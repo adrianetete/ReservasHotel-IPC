@@ -19,14 +19,12 @@ public class NuevaReserva extends javax.swing.JFrame {
     /**
      * Creates new form NuevaReserva
      */
-    ControllerNuevaReserva controller;
     DatePicker calendarioEntrada;
     DatePicker calendarioSalida;
     
     public NuevaReserva() {
         
         initComponents();
-        controller = new ControllerNuevaReserva(this);
         
         for(TipoEstancia i : TipoEstancia.values()){
             combo_alojamiento.addItem(i);
