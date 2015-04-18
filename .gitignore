@@ -1,3 +1,5 @@
 /ReservasHotel/nbproject/private/
 /ReservasHotel/build/
-/ReservasHotel/dist/
+/ReservasHotel/dist/ 
+
+*.class
