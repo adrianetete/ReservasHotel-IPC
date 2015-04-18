@@ -80,12 +80,12 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="txt_fechaEntrada" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelFechaEntrada" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btn_fechaEntrada" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelFechaSalida" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btn_fechaSalida" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
@@ -104,7 +104,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="txt_fechaEntrada" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="jLabelFechaEntrada" min="-2" pref="29" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lbl_fechaSalida" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -113,7 +113,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jLabel1" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="jLabelFechaSalida" min="-2" pref="29" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lbl_habitacion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -139,7 +139,7 @@
             <Property name="text" type="java.lang.String" value="Fecha de entrada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txt_fechaEntrada">
+        <Component class="javax.swing.JLabel" name="jLabelFechaEntrada">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="--/--/----"/>
@@ -155,7 +155,7 @@
             <Property name="text" type="java.lang.String" value="Fecha de salida:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jLabelFechaSalida">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="--/--/----"/>

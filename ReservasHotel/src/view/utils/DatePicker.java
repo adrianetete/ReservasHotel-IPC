@@ -147,11 +147,11 @@ public class DatePicker{
         dialog.repaint();
     }
  
-    public String setPickedDate() {
+    public GregorianCalendar setPickedDate() {
         // Set the return date format
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy");
-
-        return sdf.format(gregorianCalendar.getTime());
+        gregorianCalendar.set(GregorianCalendar.DAY_OF_MONTH, day);
+        return gregorianCalendar;
     }
 }
 

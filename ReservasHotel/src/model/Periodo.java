@@ -36,8 +36,14 @@ public class Periodo {
     }
     
     public Periodo(GregorianCalendar inicio, GregorianCalendar fin){
+        super();
+        
         this.inicio = inicio;
         this.fin = fin;
+    }
+    
+    public Periodo(){
+        super();
     }
 
     public GregorianCalendar getInicio(){
@@ -46,6 +52,14 @@ public class Periodo {
     
     public GregorianCalendar getFin(){
         return fin;
+    }
+    
+    public void setInicio(GregorianCalendar inicio){
+        this.inicio = inicio;
+    }
+    
+    public void setFin(GregorianCalendar fin){
+        this.fin = fin;
     }
     
     public boolean disponible(Periodo periodo) {

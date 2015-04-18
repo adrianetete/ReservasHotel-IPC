@@ -11,6 +11,7 @@ import enums.TipoHabitacion;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import main.Start;
+import model.Periodo;
 /**
  *
  * @author garciparedes
@@ -20,12 +21,14 @@ public class NuevaReserva extends javax.swing.JFrame {
     /**
      * Creates new form NuevaReserva
      */
-    DatePicker calendarioEntrada;
-    DatePicker calendarioSalida;
+    //DatePicker calendarioEntrada;
+    //DatePicker calendarioSalida;
+    Periodo periodo;
     
     public NuevaReserva() {
         
         initComponents();
+        periodo = new Periodo();
         
         for(TipoEstancia i : TipoEstancia.values()){
             combo_alojamiento.addItem(i);
@@ -56,10 +59,10 @@ public class NuevaReserva extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lbl_fechaEntrada = new javax.swing.JLabel();
-        txt_fechaEntrada = new javax.swing.JLabel();
+        jLabelFechaEntrada = new javax.swing.JLabel();
         btn_fechaEntrada = new javax.swing.JButton();
         lbl_fechaSalida = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelFechaSalida = new javax.swing.JLabel();
         btn_fechaSalida = new javax.swing.JButton();
         lbl_habitacion = new javax.swing.JLabel();
         combo_habitacion = new javax.swing.JComboBox();
@@ -72,8 +75,8 @@ public class NuevaReserva extends javax.swing.JFrame {
 
         lbl_fechaEntrada.setText("Fecha de entrada:");
 
-        txt_fechaEntrada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_fechaEntrada.setText("--/--/----");
+        jLabelFechaEntrada.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFechaEntrada.setText("--/--/----");
 
         btn_fechaEntrada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,8 +86,8 @@ public class NuevaReserva extends javax.swing.JFrame {
 
         lbl_fechaSalida.setText("Fecha de salida:");
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("--/--/----");
+        jLabelFechaSalida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelFechaSalida.setText("--/--/----");
 
         btn_fechaSalida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,11 +128,11 @@ public class NuevaReserva extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_fechaEntrada)
+                                .addComponent(jLabelFechaEntrada)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btn_fechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(jLabelFechaSalida)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btn_fechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
@@ -142,14 +145,14 @@ public class NuevaReserva extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txt_fechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelFechaEntrada, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lbl_fechaSalida))
                     .addComponent(btn_fechaEntrada))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lbl_habitacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -216,11 +219,14 @@ public class NuevaReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelActionPerformed
 
     private void btn_fechaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fechaEntradaActionPerformed
-        calendarioEntrada = new DatePicker(this);
+        //calendarioEntrada = new DatePicker(this);
+        periodo.setInicio(new DatePicker(this).setPickedDate());
+        setJlabelFechaEntradaString(periodo.getFechaEntradaString());
     }//GEN-LAST:event_btn_fechaEntradaActionPerformed
 
     private void btn_fechaSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fechaSalidaActionPerformed
-        calendarioSalida = new DatePicker(this);
+        periodo.setFin(new DatePicker(this).setPickedDate());
+        setJlabelFechaSalidaString(periodo.getFechaSalidaString());
     }//GEN-LAST:event_btn_fechaSalidaActionPerformed
 
     private void btn_buscar_reservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reservaActionPerformed
@@ -231,6 +237,13 @@ public class NuevaReserva extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_habitacionActionPerformed
 
+    public void setJlabelFechaEntradaString(String value){
+        jLabelFechaEntrada.setText(value);
+    }
+    
+    public void setJlabelFechaSalidaString(String value){
+        jLabelFechaSalida.setText(value);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar_reserva;
     private javax.swing.JButton btn_cancel;
@@ -238,12 +251,12 @@ public class NuevaReserva extends javax.swing.JFrame {
     private javax.swing.JButton btn_fechaSalida;
     private javax.swing.JComboBox combo_alojamiento;
     private javax.swing.JComboBox combo_habitacion;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelFechaEntrada;
+    private javax.swing.JLabel jLabelFechaSalida;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_alojamiento;
     private javax.swing.JLabel lbl_fechaEntrada;
     private javax.swing.JLabel lbl_fechaSalida;
     private javax.swing.JLabel lbl_habitacion;
-    private javax.swing.JLabel txt_fechaEntrada;
     // End of variables declaration//GEN-END:variables
 }
