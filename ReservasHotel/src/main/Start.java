@@ -3,10 +3,6 @@ package main;
 import enums.TipoEstancia;
 import enums.TipoHabitacion;
 import java.util.ArrayList;
-<<<<<<< HEAD
-=======
-import java.util.Calendar;
->>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
 import java.util.GregorianCalendar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -82,10 +78,6 @@ public class Start {
                 , TipoHabitacion.INDIVIDUAL)
         );
         
-<<<<<<< HEAD
-        
-=======
->>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
         listaUsuarios.add(garciparedes);
         listaUsuarios.add(new Usuario("adrianete", "Adrian", "Calvo Rojo"));
         listaUsuarios.add(new Usuario("perico", "Perico", "de los Palotes"));
@@ -138,11 +130,6 @@ public class Start {
         } else {
                 listaReservasState = new ListaReservas();
         }
-<<<<<<< HEAD
-=======
-        
-        
->>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
         
     }
 

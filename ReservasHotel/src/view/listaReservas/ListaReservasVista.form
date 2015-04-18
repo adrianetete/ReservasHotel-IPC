@@ -47,11 +47,7 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jButtonCancel" min="-2" max="-2" attributes="0"/>
                   </Group>
-<<<<<<< HEAD
                   <Component id="jScrollPane2" alignment="0" pref="705" max="32767" attributes="0"/>
-=======
-                  <Component id="jScrollPane2" alignment="0" pref="535" max="32767" attributes="0"/>
->>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
