@@ -83,15 +83,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="txt_fechaEntrada" max="32767" attributes="0"/>
+                          <Component id="jLabelFechaEntrada" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_fechaEntrada" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="combo_habitacion" alignment="0" pref="212" max="32767" attributes="0"/>
-                      <Component id="combo_alojamiento" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jComboBoxHabitacion" alignment="0" pref="204" max="32767" attributes="0"/>
+                      <Component id="jComboBoxEstancia" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lbl_alojamiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_estancia" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_fechaEntrada" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_fechaSalida" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_habitacion" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -99,7 +99,7 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel1" max="32767" attributes="0"/>
+                          <Component id="jLabelFechaSalida" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_fechaSalida" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
@@ -115,24 +115,24 @@
                   <Component id="lbl_fechaEntrada" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txt_fechaEntrada" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jLabelFechaEntrada" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="btn_fechaEntrada" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lbl_fechaSalida" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jLabelFechaSalida" min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="btn_fechaSalida" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lbl_habitacion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="combo_habitacion" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxHabitacion" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="lbl_alojamiento" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_estancia" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="combo_alojamiento" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxEstancia" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="btn_buscar_reserva" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -145,7 +145,7 @@
             <Property name="text" type="java.lang.String" value="Fecha de entrada:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="txt_fechaEntrada">
+        <Component class="javax.swing.JLabel" name="jLabelFechaEntrada">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="--/--/--"/>
@@ -161,7 +161,7 @@
             <Property name="text" type="java.lang.String" value="Fecha de salida:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jLabelFechaSalida">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="--/--/--"/>
@@ -177,28 +177,31 @@
             <Property name="text" type="java.lang.String" value="Tipo de habitaci&#xf3;n:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="combo_habitacion">
+        <Component class="javax.swing.JComboBox" name="jComboBoxHabitacion">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
-                <StringItem index="0" value="---------------"/>
+                <StringItem index="0" value="Cualquiera"/>
               </StringArray>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_alojamiento">
+        <Component class="javax.swing.JLabel" name="lbl_estancia">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo de alojamiento:"/>
+            <Property name="text" type="java.lang.String" value="Tipo de estancia:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="combo_alojamiento">
+        <Component class="javax.swing.JComboBox" name="jComboBoxEstancia">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
-                <StringItem index="0" value="---------------"/>
+                <StringItem index="0" value="Cualquiera"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxEstanciaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_buscar_reserva">
           <Properties>

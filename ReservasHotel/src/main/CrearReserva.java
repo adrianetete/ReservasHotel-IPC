@@ -6,6 +6,7 @@
 package main;
 
 import javax.swing.JFrame;
+import model.Reserva;
 import view.nuevaReserva.ReservasDisponiblesVista;
 import view.nuevaReserva.NuevaReserva;
 
@@ -31,15 +32,14 @@ public class CrearReserva {
         });
     }
     
-    public void buscarReservasDisponibles(){
+    public void buscarReservasDisponibles(final Reserva reserva){
         nuevaReservaState.setVisible(false);
         
         if (reservasDisponiblesVistaState == null){
-            System.out.println("Hola");
             
             java.awt.EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                        reservasDisponiblesVistaState = new ReservasDisponiblesVista();
+                        reservasDisponiblesVistaState = new ReservasDisponiblesVista(reserva);
                         reservasDisponiblesVistaState.setVisible(true);
 
                 } 

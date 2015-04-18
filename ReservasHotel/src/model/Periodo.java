@@ -14,7 +14,10 @@ import java.util.Random;
  * @author garciparedes
  */
 public class Periodo {
-   
+    
+    private static final String FAIL_INICIO = "La fecha de inicio debe ser anterior a la de fin.";
+    private static final String FAIL_FIN = "La fecha de fin debe ser posterior a la de inicio.";
+
     private GregorianCalendar inicio;
     private GregorianCalendar fin;
     
@@ -54,18 +57,29 @@ public class Periodo {
         return fin;
     }
     
-    public void setInicio(GregorianCalendar inicio){
+    public void setInicio(GregorianCalendar inicio) throws IllegalArgumentException {
+        if​( getFin() != null && getFin().before(inicio)) 
+            throw​​ new​ IllegalArgumentException(FAIL_INICIO);
+    
         this.inicio = inicio;
     }
     
-    public void setFin(GregorianCalendar fin){
+    public void setFin(GregorianCalendar fin)throws IllegalArgumentException {
+        if​( getInicio() != null && getInicio().after(fin)) 
+            throw​​ new​ IllegalArgumentException(FAIL_FIN);
         this.fin = fin;
     }
     
     public boolean disponible(Periodo periodo) {
-        boolean diponible = false;
+        boolean disponible = true;
         
-        return false;
+        if(getFin().before(periodo.getInicio()) 
+                || getInicio().after(periodo.getFin())
+                ){
+            disponible = false;
+        }
+        
+        return disponible;
                 
                 
     }

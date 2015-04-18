@@ -26,5 +26,14 @@ public enum TipoEstancia {
     public String toString(){
         return name;
     }
+    
+    public boolean coincide(TipoEstancia tipoEstancia){
+        boolean coincide = false;
+        
+        if (tipoEstancia == null || this == tipoEstancia){
+            coincide = true;
+        }
+        return coincide;
+    }
   
 }

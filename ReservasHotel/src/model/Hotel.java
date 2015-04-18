@@ -39,4 +39,15 @@ public class Hotel {
     public ArrayList<Reserva> getListaReservas(){
         return listaReservasDisponibles;
     }
+    
+    public ArrayList<Reserva> buscarReservasDisponibles(Reserva reserva){
+        ArrayList<Reserva> busqueda = new ArrayList<Reserva>();
+        for (int i = 0; i < listaReservasDisponibles.size(); i++){
+            if (listaReservasDisponibles.get(i).coincide(reserva)){
+                busqueda.add(listaReservasDisponibles.get(i));
+            }
+        }
+        
+        return busqueda;
+    }
 }

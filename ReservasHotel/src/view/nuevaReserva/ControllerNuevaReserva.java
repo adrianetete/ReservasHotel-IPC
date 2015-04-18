@@ -7,6 +7,7 @@ package view.nuevaReserva;
 
 import enums.TipoEstancia;
 import enums.TipoHabitacion;
+import main.Start;
 import model.Reserva;
 import view.utils.DatePicker;
 
@@ -45,20 +46,35 @@ public class ControllerNuevaReserva {
     }
     
     public void setTipoEstancia(){
-        reserva.setTipoEstancia(
-                TipoEstancia.values()[vista.getJComboBoxEstancia()]
-        );
-        System.out.println(reserva.getTipoEstanciaString());
+        /** 
+         * Esta comprobacion se hace aqui
+         * por que no tiene que ver con el
+         * modeo sino con que se sale del array 
+         * antes de que interactue con el.
+         */
+       
+        try{
+            reserva.setTipoEstancia(
+                    TipoEstancia.values()[vista.getJComboBoxEstancia()-1]
+            );
+        } catch(ArrayIndexOutOfBoundsException e){
+            reserva.setTipoEstancia(null);
+        }
     }
     
     public void setTipoHabitacion(){
-        reserva.setTipoHabitacion(
-                TipoHabitacion.values()[vista.getJComboBoxEstancia()+1]
+        try {
+            reserva.setTipoHabitacion(
+                TipoHabitacion.values()[vista.getJComboBoxHabitacion()-1]
         );
+        } catch(ArrayIndexOutOfBoundsException e){
+            reserva.setTipoHabitacion(null);
+        }
+        
     }
     
     public void enviar(){
-        
+        Start.crearReservaState.buscarReservasDisponibles(reserva);
     }
     
     public void cancelar(){

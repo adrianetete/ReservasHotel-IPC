@@ -88,12 +88,23 @@ public class Reserva {
     }
     
     public String getTipoEstanciaString(){
-        return getTipoHabitacion().toString();
+        return getTipoEstancia().toString();
     }
     
     public String getTipoHabitacionString(){
         return getTipoHabitacion().toString();
+    }
 
+    public boolean coincide(Reserva reserva) {
+        boolean coincide = false;
+        
+        if (getTipoEstancia().coincide(reserva.getTipoEstancia())
+                && getTipoHabitacion().coincide(reserva.getTipoHabitacion())
+                && getPeriodo().disponible(reserva.getPeriodo())){
+            coincide = true;
+        }
+        
+        return coincide;
     }
     
     

@@ -27,5 +27,14 @@ public enum TipoHabitacion {
     public String toString(){
         return name;
     }
+
+    public boolean coincide(TipoHabitacion tipoHabitacion) {
+        boolean coincide = false;
+        
+        if (tipoHabitacion == null || this == tipoHabitacion){
+            coincide = true;
+        }
+        return coincide;
+    }
     
 }

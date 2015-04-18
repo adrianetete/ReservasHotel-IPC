@@ -98,7 +98,7 @@ public class NuevaReserva extends javax.swing.JFrame {
 
         lbl_habitacion.setText("Tipo de habitación:");
 
-        jComboBoxHabitacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---------------" }));
+        jComboBoxHabitacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera" }));
         jComboBoxHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxHabitacionActionPerformed(evt);
@@ -107,7 +107,7 @@ public class NuevaReserva extends javax.swing.JFrame {
 
         lbl_estancia.setText("Tipo de estancia:");
 
-        jComboBoxEstancia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---------------" }));
+        jComboBoxEstancia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera" }));
         jComboBoxEstancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxEstanciaActionPerformed(evt);
@@ -218,7 +218,7 @@ public class NuevaReserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        
+     
         controller.cancelar();
     }//GEN-LAST:event_btn_cancelActionPerformed
 
@@ -231,12 +231,11 @@ public class NuevaReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_fechaSalidaActionPerformed
 
     private void btn_buscar_reservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reservaActionPerformed
-        Start.crearReservaState.buscarReservasDisponibles();
+        controller.enviar();
     }//GEN-LAST:event_btn_buscar_reservaActionPerformed
 
     private void jComboBoxHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHabitacionActionPerformed
         controller.setTipoHabitacion();
-        
     }//GEN-LAST:event_jComboBoxHabitacionActionPerformed
 
     private void jComboBoxEstanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstanciaActionPerformed
