@@ -9,6 +9,12 @@ package view.nuevaReserva;
  *
  * @author garciparedes
  */
-public class controllerNuevaReserva {
+public class ControllerNuevaReserva {
+    
+    private NuevaReserva vista;
+
+    ControllerNuevaReserva(NuevaReserva vista) {
+        this.vista= vista;
+    }
     
 }
