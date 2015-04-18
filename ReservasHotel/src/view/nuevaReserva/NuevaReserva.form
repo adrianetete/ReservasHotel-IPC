@@ -65,14 +65,14 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="combo_habitacion" alignment="0" pref="212" max="32767" attributes="0"/>
-                      <Component id="combo_alojamiento" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jComboBoxHabitacion" alignment="0" pref="212" max="32767" attributes="0"/>
+                      <Component id="jComboBoxEstancia" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lbl_fechaEntrada" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_fechaSalida" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lbl_habitacion" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbl_alojamiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_estancia" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -117,11 +117,11 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="lbl_habitacion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="combo_habitacion" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxHabitacion" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lbl_alojamiento" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_estancia" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="combo_alojamiento" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxEstancia" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -171,7 +171,7 @@
             <Property name="text" type="java.lang.String" value="Tipo de habitaci&#xf3;n:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="combo_habitacion">
+        <Component class="javax.swing.JComboBox" name="jComboBoxHabitacion">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -180,15 +180,15 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_habitacionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxHabitacionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_alojamiento">
+        <Component class="javax.swing.JLabel" name="lbl_estancia">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo de alojamiento:"/>
+            <Property name="text" type="java.lang.String" value="Tipo de estancia:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="combo_alojamiento">
+        <Component class="javax.swing.JComboBox" name="jComboBoxEstancia">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
@@ -196,6 +196,9 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxEstanciaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -23,18 +23,19 @@ public class NuevaReserva extends javax.swing.JFrame {
      */
     //DatePicker calendarioEntrada;
     //DatePicker calendarioSalida;
-    Periodo periodo;
+    private ControllerNuevaReserva controller;
     
     public NuevaReserva() {
         
         initComponents();
-        periodo = new Periodo();
+        
+        controller = new ControllerNuevaReserva(this);
         
         for(TipoEstancia i : TipoEstancia.values()){
-            combo_alojamiento.addItem(i);
+            jComboBoxEstancia.addItem(i);
         }
         for(TipoHabitacion j : TipoHabitacion.values()){
-            combo_habitacion.addItem(j);
+            jComboBoxHabitacion.addItem(j);
         }
         
         ImageIcon icon = new ImageIcon("res/calendar.png");
@@ -65,9 +66,9 @@ public class NuevaReserva extends javax.swing.JFrame {
         jLabelFechaSalida = new javax.swing.JLabel();
         btn_fechaSalida = new javax.swing.JButton();
         lbl_habitacion = new javax.swing.JLabel();
-        combo_habitacion = new javax.swing.JComboBox();
-        lbl_alojamiento = new javax.swing.JLabel();
-        combo_alojamiento = new javax.swing.JComboBox();
+        jComboBoxHabitacion = new javax.swing.JComboBox();
+        lbl_estancia = new javax.swing.JLabel();
+        jComboBoxEstancia = new javax.swing.JComboBox();
         btn_buscar_reserva = new javax.swing.JButton();
         btn_cancel = new javax.swing.JButton();
 
@@ -97,16 +98,21 @@ public class NuevaReserva extends javax.swing.JFrame {
 
         lbl_habitacion.setText("Tipo de habitación:");
 
-        combo_habitacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---------------" }));
-        combo_habitacion.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxHabitacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---------------" }));
+        jComboBoxHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_habitacionActionPerformed(evt);
+                jComboBoxHabitacionActionPerformed(evt);
             }
         });
 
-        lbl_alojamiento.setText("Tipo de alojamiento:");
+        lbl_estancia.setText("Tipo de estancia:");
 
-        combo_alojamiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---------------" }));
+        jComboBoxEstancia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "---------------" }));
+        jComboBoxEstancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxEstanciaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -115,14 +121,14 @@ public class NuevaReserva extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(combo_habitacion, 0, 212, Short.MAX_VALUE)
-                    .addComponent(combo_alojamiento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxHabitacion, 0, 212, Short.MAX_VALUE)
+                    .addComponent(jComboBoxEstancia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_fechaEntrada)
                             .addComponent(lbl_fechaSalida)
                             .addComponent(lbl_habitacion)
-                            .addComponent(lbl_alojamiento))
+                            .addComponent(lbl_estancia))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -156,11 +162,11 @@ public class NuevaReserva extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lbl_habitacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(combo_habitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lbl_alojamiento)
+                        .addComponent(lbl_estancia)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(combo_alojamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxEstancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_fechaSalida)
@@ -213,29 +219,29 @@ public class NuevaReserva extends javax.swing.JFrame {
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
         
-        //reset();
-        this.setVisible(false);
-        this.dispose();
+        controller.cancelar();
     }//GEN-LAST:event_btn_cancelActionPerformed
 
     private void btn_fechaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fechaEntradaActionPerformed
-        //calendarioEntrada = new DatePicker(this);
-        periodo.setInicio(new DatePicker(this).setPickedDate());
-        setJlabelFechaEntradaString(periodo.getFechaEntradaString());
+        controller.setFechaEntrada();
     }//GEN-LAST:event_btn_fechaEntradaActionPerformed
 
     private void btn_fechaSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fechaSalidaActionPerformed
-        periodo.setFin(new DatePicker(this).setPickedDate());
-        setJlabelFechaSalidaString(periodo.getFechaSalidaString());
+        controller.setFechaSalida();
     }//GEN-LAST:event_btn_fechaSalidaActionPerformed
 
     private void btn_buscar_reservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reservaActionPerformed
         Start.crearReservaState.buscarReservasDisponibles();
     }//GEN-LAST:event_btn_buscar_reservaActionPerformed
 
-    private void combo_habitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_habitacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_combo_habitacionActionPerformed
+    private void jComboBoxHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHabitacionActionPerformed
+        controller.setTipoHabitacion();
+        
+    }//GEN-LAST:event_jComboBoxHabitacionActionPerformed
+
+    private void jComboBoxEstanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstanciaActionPerformed
+        controller.setTipoEstancia();
+    }//GEN-LAST:event_jComboBoxEstanciaActionPerformed
 
     public void setJlabelFechaEntradaString(String value){
         jLabelFechaEntrada.setText(value);
@@ -244,17 +250,25 @@ public class NuevaReserva extends javax.swing.JFrame {
     public void setJlabelFechaSalidaString(String value){
         jLabelFechaSalida.setText(value);
     }
+    
+    public int getJComboBoxEstancia(){
+        return jComboBoxEstancia.getSelectedIndex();
+    }
+    
+    public int getJComboBoxHabitacion(){
+        return jComboBoxHabitacion.getSelectedIndex();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar_reserva;
     private javax.swing.JButton btn_cancel;
     private javax.swing.JButton btn_fechaEntrada;
     private javax.swing.JButton btn_fechaSalida;
-    private javax.swing.JComboBox combo_alojamiento;
-    private javax.swing.JComboBox combo_habitacion;
+    private javax.swing.JComboBox jComboBoxEstancia;
+    private javax.swing.JComboBox jComboBoxHabitacion;
     private javax.swing.JLabel jLabelFechaEntrada;
     private javax.swing.JLabel jLabelFechaSalida;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbl_alojamiento;
+    private javax.swing.JLabel lbl_estancia;
     private javax.swing.JLabel lbl_fechaEntrada;
     private javax.swing.JLabel lbl_fechaSalida;
     private javax.swing.JLabel lbl_habitacion;

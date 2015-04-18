@@ -38,10 +38,17 @@ public class Reserva {
 
     public Reserva(Periodo periodo, TipoEstancia tipoEstancia,
             TipoHabitacion tipoHabitacion) {
+        super();
         
         this.periodo = periodo;
         this.tipoEstancia = tipoEstancia;
         this.tipoHabitacion = tipoHabitacion;
+    }
+    
+    public Reserva(){
+        super();
+        
+        this.periodo = new Periodo();
     }
 
     public Object[] toArray(){
@@ -52,21 +59,40 @@ public class Reserva {
         };
         return objectArray;
     }
-        
+    
+    public Periodo getPeriodo(){
+        return periodo;
+    }
+    
+    public TipoEstancia getTipoEstancia(){
+        return tipoEstancia;
+    }
+    
+    public TipoHabitacion getTipoHabitacion(){
+        return tipoHabitacion;
+    }
+    
+    public void setTipoEstancia (TipoEstancia value){
+        this.tipoEstancia = value;
+    }
+    
+    public void setTipoHabitacion (TipoHabitacion value){
+        this.tipoHabitacion = value;
+    }
     public String getFechaEntradaString(){
-        return periodo.getFechaEntradaString();
+        return getPeriodo().getFechaEntradaString();
     }
     
     public String getFechaSalidaString(){
-        return periodo.getFechaSalidaString();
+        return getPeriodo().getFechaSalidaString();
     }
     
     public String getTipoEstanciaString(){
-        return tipoEstancia.toString();
+        return getTipoHabitacion().toString();
     }
     
     public String getTipoHabitacionString(){
-        return tipoHabitacion.toString();
+        return getTipoHabitacion().toString();
 
     }
     
