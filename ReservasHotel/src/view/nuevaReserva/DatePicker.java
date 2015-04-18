@@ -38,7 +38,11 @@ public class DatePicker {
         //String[] header = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
 
         JPanel calendario = new JPanel(new GridLayout(7, 7));
+<<<<<<< HEAD
         calendario.setPreferredSize(new Dimension(400, 240));
+=======
+        calendario.setPreferredSize(new Dimension(200, 120));
+>>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
 
         for (int i = 0; i < labels.length; i++){
             labels[i] = new JLabel();

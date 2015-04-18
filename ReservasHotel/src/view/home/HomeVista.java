@@ -218,6 +218,7 @@ public class HomeVista extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelUserInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -229,13 +230,34 @@ public class HomeVista extends javax.swing.JFrame {
                         .addComponent(jButtonIniciarSesion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonExit))
+=======
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelUserInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonHacerReserva)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonVerReservas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addComponent(jButtonIniciarSesion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonExit))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+>>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+<<<<<<< HEAD
                         .addComponent(jLabelEstadoSesion))
                     .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
+=======
+                        .addComponent(jLabelEstadoSesion)))
+                .addContainerGap(20, Short.MAX_VALUE))
+>>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,16 +328,30 @@ public class HomeVista extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVerReservas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelApellidos;
+    private javax.swing.JLabel jLabelApellidos2;
+    private javax.swing.JLabel jLabelApellidos3;
     private javax.swing.JLabel jLabelEstadoSesion;
     private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelNombre2;
+    private javax.swing.JLabel jLabelNombre3;
     private javax.swing.JLabel jLabelReservas;
+    private javax.swing.JLabel jLabelReservas2;
+    private javax.swing.JLabel jLabelReservas3;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelUserInfo;
+    private javax.swing.JPanel jPanelUserInfo2;
+    private javax.swing.JPanel jPanelUserInfo3;
     private javax.swing.JLabel lbl_apellidos;
+    private javax.swing.JLabel lbl_apellidos2;
+    private javax.swing.JLabel lbl_apellidos3;
     private javax.swing.JLabel lbl_nombre;
+    private javax.swing.JLabel lbl_nombre2;
+    private javax.swing.JLabel lbl_nombre3;
     private javax.swing.JLabel lbl_reservas;
+    private javax.swing.JLabel lbl_reservas2;
+    private javax.swing.JLabel lbl_reservas3;
     // End of variables declaration//GEN-END:variables
 }

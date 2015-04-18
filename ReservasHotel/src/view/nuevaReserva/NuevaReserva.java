@@ -43,6 +43,7 @@ public class NuevaReserva extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         jPanel1 = new javax.swing.JPanel();
         lbl_fechaEntrada = new javax.swing.JLabel();
         txt_fechaEntrada = new javax.swing.JLabel();
@@ -156,10 +157,13 @@ public class NuevaReserva extends javax.swing.JFrame {
             }
         });
 
+=======
+>>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,6 +190,13 @@ public class NuevaReserva extends javax.swing.JFrame {
                     .addComponent(btn_reservar)
                     .addComponent(btn_salir))
                 .addContainerGap())
+=======
+            .addGap(0, 425, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+>>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
         );
 
         pack();
@@ -207,6 +218,7 @@ public class NuevaReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_fechaSalidaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton btn_fechaEntrada;
     private javax.swing.JButton btn_fechaSalida;
     private javax.swing.JButton btn_reservar;
@@ -221,5 +233,7 @@ public class NuevaReserva extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_habitacion;
     private javax.swing.JLabel lbl_info1;
     private javax.swing.JLabel txt_fechaEntrada;
+=======
+>>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
     // End of variables declaration//GEN-END:variables
 }

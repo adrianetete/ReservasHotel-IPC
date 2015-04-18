@@ -63,7 +63,11 @@ public class ListaReservasVista extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonCancel))
+<<<<<<< HEAD
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE))
+=======
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE))
+>>>>>>> 2766946347340c34ff949e42dabdec7d1aa054e8
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(240, 240, 240)
