@@ -43,8 +43,6 @@ public class IniciarSesionVista extends javax.swing.JFrame {
         lbl_ayuda = new javax.swing.JLabel();
         jButtonCancell = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         panelInicioSesion.setBorder(javax.swing.BorderFactory.createTitledBorder("Iniciar Sesión"));
 
         lbl_usuario.setText("Usuario:");

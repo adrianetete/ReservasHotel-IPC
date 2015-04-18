@@ -7,6 +7,7 @@ package view.home;
 
 import main.Start;
 import view.home.HomeVista;
+import view.nuevaReserva.DatePicker;
 
 /**
  *
@@ -25,7 +26,8 @@ public class ControllerHome {
     }
 
     public void hacerReserva() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        Start.crearReserva();
     }
 
     public void verReservas() {

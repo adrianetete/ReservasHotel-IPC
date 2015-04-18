@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view.nuevaReserva;
+package model;
 
 /**
  *
  * @author garciparedes
  */
-public class controllerNuevaReserva {
+public class Hotel {
     
 }
