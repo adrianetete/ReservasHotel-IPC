@@ -10,6 +10,7 @@ import enums.TipoHabitacion;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 /**
  *
@@ -17,23 +18,32 @@ import java.util.GregorianCalendar;
  */
 public class Reserva {
     
-    private GregorianCalendar fechaEntrada;
-    private GregorianCalendar fechaSalida;
+    private Periodo periodo;
 
     private TipoEstancia tipoEstancia;
     private TipoHabitacion tipoHabitacion;
     
+    public static Reserva randReserva(){
+        
+        Random rand = new Random();
 
-    public Reserva(GregorianCalendar fechaEntrada,
-            GregorianCalendar fechaSalida, TipoEstancia tipoEstancia,
+        int ranEstancia = rand.nextInt(TipoEstancia.values().length);
+        int ranHabitacion = rand.nextInt(TipoHabitacion.values().length);
+
+        return new Reserva(Periodo.randomPeriodo()
+                ,TipoEstancia.values()[ranEstancia]
+                , TipoHabitacion.values()[ranHabitacion]
+        );
+    }
+
+    public Reserva(Periodo periodo, TipoEstancia tipoEstancia,
             TipoHabitacion tipoHabitacion) {
         
-        this.fechaEntrada = fechaEntrada;
-        this.fechaSalida = fechaSalida;
+        this.periodo = periodo;
         this.tipoEstancia = tipoEstancia;
         this.tipoHabitacion = tipoHabitacion;
     }
-    
+
     public Object[] toArray(){
         Object[] objectArray = {getFechaEntradaString()
                 , getFechaSalidaString()
@@ -44,15 +54,11 @@ public class Reserva {
     }
         
     public String getFechaEntradaString(){
-        SimpleDateFormat timeFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String time = timeFormat.format(fechaEntrada.getTime());
-        return time;
+        return periodo.getFechaEntradaString();
     }
     
     public String getFechaSalidaString(){
-        SimpleDateFormat timeFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String time = timeFormat.format(fechaSalida.getTime());
-        return time;
+        return periodo.getFechaSalidaString();
     }
     
     public String getTipoEstanciaString(){

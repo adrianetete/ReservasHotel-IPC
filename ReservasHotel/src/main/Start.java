@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import model.Hotel;
 import model.Reserva;
 import model.Usuario;
 
@@ -27,8 +28,11 @@ public class Start {
 
     private static Usuario usuario;
     
+    private static Hotel hotel;
+    
     public static void main(String[] args) {
         
+        hotel = new Hotel(200,"hotelUVA", "","" ,"");
         try {
             // Set System L&F
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -48,35 +52,10 @@ public class Start {
         listaUsuarios = new ArrayList<Usuario>();
         Usuario garciparedes = new Usuario("garciparedes", "Sergio", "Garcia Prado");
         
-        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
-                , (GregorianCalendar) GregorianCalendar.getInstance()
-                , TipoEstancia.SA
-                , TipoHabitacion.DOBLEDEUSOINDIVIDUAL)
-        );
+        for (int i = 0; i < 10; i++){
+            garciparedes.addReserva(hotel.getListaReservas().remove(0));
+        }
         
-        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
-                , (GregorianCalendar) GregorianCalendar.getInstance()
-                , TipoEstancia.PC
-                , TipoHabitacion.SUPERIOR)
-        );
-        
-        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
-                , (GregorianCalendar) GregorianCalendar.getInstance()
-                , TipoEstancia.AD
-                , TipoHabitacion.SUITE)
-        );
-        
-        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
-                , (GregorianCalendar) GregorianCalendar.getInstance()
-                , TipoEstancia.MP
-                , TipoHabitacion.INDIVIDUAL)
-        );
-        
-        garciparedes.addReserva(new Reserva((GregorianCalendar) GregorianCalendar.getInstance()
-                , (GregorianCalendar) GregorianCalendar.getInstance()
-                , TipoEstancia.MP
-                , TipoHabitacion.INDIVIDUAL)
-        );
         
         listaUsuarios.add(garciparedes);
         listaUsuarios.add(new Usuario("adrianete", "Adrian", "Calvo Rojo"));
@@ -143,5 +122,9 @@ public class Start {
     
     public static Usuario getUsuario(){
         return usuario;
+    }
+    
+    public static Hotel getHotel(){
+        return hotel;
     }
 }

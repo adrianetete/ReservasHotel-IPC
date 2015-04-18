@@ -5,10 +5,38 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author garciparedes
  */
 public class Hotel {
     
+    private String nombre;
+    private String direccion;
+    private String telefono;
+    private String email;
+    
+    ArrayList<Reserva> listaReservasDisponibles;
+    
+    public Hotel(int nReservas, String nombre
+            ,String direccion, String telefono, String email){
+        
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
+        this.listaReservasDisponibles = new ArrayList<Reserva>();
+        
+        for(int i = 0; i< nReservas; i++){
+            listaReservasDisponibles.add(Reserva.randReserva());
+        }
+        
+        
+    }
+    
+    public ArrayList<Reserva> getListaReservas(){
+        return listaReservasDisponibles;
+    }
 }
