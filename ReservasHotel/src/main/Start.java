@@ -3,7 +3,6 @@ package main;
 import enums.TipoEstancia;
 import enums.TipoHabitacion;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -19,7 +18,7 @@ public class Start {
     public static Home homeState;
     public static IniciarSesion iniciarSesionState;
     public static ListaReservas listaReservasState;
-
+    public static CrearReserva crearReservaState;
     public static PerfilUsuario perfilUsuarioState;
 
     //private static ArrayList<Reserva> reservas;
@@ -105,8 +104,9 @@ public class Start {
         return usuario != null;
     }
 
-    public static void hacerReserva() {
+    public static void crearReserva() {
         
+        crearReservaState = new CrearReserva();
     }
 
     public static void iniciarSesion() {
@@ -130,8 +130,6 @@ public class Start {
         } else {
                 listaReservasState = new ListaReservas();
         }
-        
-        
         
     }
 

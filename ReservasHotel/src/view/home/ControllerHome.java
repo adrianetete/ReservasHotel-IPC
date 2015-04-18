@@ -26,7 +26,8 @@ public class ControllerHome {
     }
 
     public void hacerReserva() {
-        DatePicker datePicker = new DatePicker(vista);
+        
+        Start.crearReserva();
     }
 
     public void verReservas() {

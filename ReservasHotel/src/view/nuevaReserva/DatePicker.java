@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import javax.swing.*;
  
-public class DatePicker {
+public class DatePicker{
     
     private static final int DECREMENT = -1;
     private static final int INCREMENT = 1;
@@ -38,7 +38,7 @@ public class DatePicker {
         //String[] header = { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
 
         JPanel calendario = new JPanel(new GridLayout(7, 7));
-        calendario.setPreferredSize(new Dimension(200, 120));
+        calendario.setPreferredSize(new Dimension(400, 240));
 
         for (int i = 0; i < labels.length; i++){
             labels[i] = new JLabel();
