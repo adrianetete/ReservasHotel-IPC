@@ -83,7 +83,7 @@ public abstract class AbstractControllerReservar {
     public abstract void buscar();
     
     public void cancelar(){
-        Start.crearReservaState.cancelar();
+        Start.getStateMachineCrearReservas().cancelar();
     };
 
 }

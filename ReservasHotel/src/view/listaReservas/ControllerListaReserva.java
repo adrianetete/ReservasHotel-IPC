@@ -11,11 +11,11 @@ import main.Start;
  *
  * @author garciparedes
  */
-public class ControllerListaReservas {
+public class ControllerListaReserva {
 
     private ListaReservasVista vista;
 
-    public ControllerListaReservas(ListaReservasVista vista) {     
+    public ControllerListaReserva(ListaReservasVista vista) {     
         this.vista = vista;
     }
     
@@ -27,10 +27,7 @@ public class ControllerListaReservas {
     }
 
     void cancelar() {
-        //Start.
-        Start.listaReservasState.cancelar();
-        
-
+        Start.getStateMachineListaReservas().cancelar();
     }
     
 }

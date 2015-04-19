@@ -30,7 +30,7 @@ public class ListaReservas {
 
     public void cancelar() {
         currentState.setVisible(false);
-        Start.homeState.mostrar();
+        Start.getStateMachineHome().mostrar();
 
     }
     public void show(){         

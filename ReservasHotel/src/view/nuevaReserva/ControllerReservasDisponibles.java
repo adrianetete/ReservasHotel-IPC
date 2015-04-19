@@ -36,7 +36,6 @@ class ControllerReservasDisponibles  extends AbstractControllerReservar{
                     Start.getHotel().buscarReservasDisponibles(getReservaActual()).get(
                             vista.getJTableSelectedRow()));
         }
-        System.out.println(vista.getJTableSelectedRow());
     }
     
 }

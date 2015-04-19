@@ -16,13 +16,11 @@ import model.Usuario;
  */
 public class Start {
     
-    public static Home homeState;
-    public static IniciarSesion iniciarSesionState;
-    public static ListaReservas listaReservasState;
-    public static CrearReserva crearReservaState;
-    public static PerfilUsuario perfilUsuarioState;
+    private static Home homeState;
+    private static IniciarSesion iniciarSesionState;
+    private static ListaReservas listaReservasState;
+    private static CrearReserva crearReservaState;
 
-    //private static ArrayList<Reserva> reservas;
     
     private static ArrayList<Usuario> listaUsuarios;
 
@@ -73,11 +71,18 @@ public class Start {
         return homeState; 
     }
     
-    
     public static IniciarSesion getStateMachineIniciarSesion() {
         return iniciarSesionState; 
     }
    
+    public static ListaReservas getStateMachineListaReservas() {
+        return listaReservasState; 
+    }
+
+    public static CrearReserva getStateMachineCrearReservas() {
+        return crearReservaState; 
+    }
+
     
     public static boolean isLoged(){
         return usuario != null;

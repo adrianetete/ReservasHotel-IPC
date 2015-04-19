@@ -16,13 +16,13 @@ import model.Reserva;
  */
 public class ListaReservasVista extends javax.swing.JFrame {
 
-    private ControllerListaReservas controller;
+    private ControllerListaReserva controller;
     /**
      * Creates new form ListaReservasVista
      */
     public ListaReservasVista() {
         initComponents();
-        controller = new ControllerListaReservas(this);
+        controller = new ControllerListaReserva(this);
         jTableReservas.setModel(new TableModel(Start.getUsuario().getListaReservas()));
     }
 
@@ -48,6 +48,8 @@ public class ListaReservasVista extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jButtonCancel.setText("Cancelar");
         jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,7 +57,7 @@ public class ListaReservasVista extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Alojamiento Disponible"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Reservas"));
 
         jTableReservas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

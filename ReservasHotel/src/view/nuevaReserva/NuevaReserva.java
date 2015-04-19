@@ -72,6 +72,8 @@ public class NuevaReserva extends javax.swing.JFrame implements VistaReservaInte
         btn_buscar_reserva = new javax.swing.JButton();
         btn_cancel = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Reserva"));
 
         lbl_fechaEntrada.setText("Fecha de entrada:");

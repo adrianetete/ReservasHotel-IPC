@@ -24,7 +24,7 @@ public class ControllerNuevaReserva extends AbstractControllerReservar {
     
     @Override
     public void buscar(){
-        Start.crearReservaState.buscarReservasDisponibles(getReservaActual());
+        Start.getStateMachineCrearReservas().buscarReservasDisponibles(getReservaActual());
     }
    
 }
