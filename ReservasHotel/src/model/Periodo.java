@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
+
+/**
+ * Clase <code>Periodo</code> que marca un periodo entre dos fechas
+ * concretas
+ * 
+ * @author Adrián Calvo Rojo
+ * @author Sergio García Prado
+ */
 
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 import java.util.Random;
 
-/**
- *
- * @author garciparedes
- */
 public class Periodo {
     
     private static final String FAIL_INICIO = "La fecha de inicio debe ser anterior a la de fin.";
@@ -23,8 +22,35 @@ public class Periodo {
     private GregorianCalendar inicio;
     private GregorianCalendar fin;
     
+    /**
+     * Constructor de la clase <code>Periodo</code>.
+     */    
+    public Periodo(){
+        super();
+    }
     
+    /**
+     * Constructor de la clase <code>Periodo</code>.
+     * 
+     * @param inicio fecha de inicio del periodo
+     * @param fin fecha fin del periodo
+     */
+    public Periodo(GregorianCalendar inicio, GregorianCalendar fin){
+        super();
+        
+        this.inicio = inicio;
+        this.fin = fin;
+    }
+    
+    /**
+     * Crea dos instancias de <code>GregorianCalendar</code>. A la primera 
+     * se le asigna una fecha aleatoria y a la segunda se la suma una
+     * longitud de tiempo aleatorio. Lo que conseguimos es un periodo aleatorio.
+     * 
+     * @return periodo generado
+     */
     public static Periodo randomPeriodo(){
+        
         GregorianCalendar inicio = (GregorianCalendar) GregorianCalendar.getInstance();
         GregorianCalendar fin = (GregorianCalendar) GregorianCalendar.getInstance();
         
@@ -40,17 +66,6 @@ public class Periodo {
         
     }
     
-    public Periodo(GregorianCalendar inicio, GregorianCalendar fin){
-        super();
-        
-        this.inicio = inicio;
-        this.fin = fin;
-    }
-    
-    public Periodo(){
-        super();
-    }
-
     public GregorianCalendar getInicio(){
         return inicio;
     }
@@ -59,6 +74,11 @@ public class Periodo {
         return fin;
     }
     
+    /**
+     * Establece una fecha como inicio del periodo.
+     * @param inicio
+     * @throws IllegalArgumentException 
+     */
     public void setInicio(GregorianCalendar inicio) throws IllegalArgumentException {
         if​( getFin() != null && getFin().before(inicio)) 
             throw​​ new​ IllegalArgumentException(FAIL_INICIO);
@@ -66,12 +86,24 @@ public class Periodo {
         this.inicio = inicio;
     }
     
+    /**
+     * Establece una fecha como fin del periodo.
+     * @param fin
+     * @throws IllegalArgumentException 
+     */
     public void setFin(GregorianCalendar fin)throws IllegalArgumentException {
         if​( getInicio() != null && getInicio().after(fin)) 
             throw​​ new​ IllegalArgumentException(FAIL_FIN);
         this.fin = fin;
     }
     
+    /**
+     * Indica si el periodo pasado por parametro se ecuentra dentro
+     * de este periodo.
+     * 
+     * @param periodo
+     * @return 
+     */
     public boolean disponible(Periodo periodo) {
         boolean disponible = true;
         
@@ -80,33 +112,48 @@ public class Periodo {
                 ){
             disponible = false;
         }
-        
         return disponible;
-                
-                
     }
 
+    /**
+     * Devuelve la fecha de entrada como String.
+     * @return 
+     */
     public String getFechaEntradaString(){
+        
         String time;
+        
         try{
+            
             time = DEFAUL_TIME_FORMAT.format(inicio.getTime());
+            
         } catch(NullPointerException e){
+            
             time = NULL_DATE;
         }
         return time;
     }    
-    
+    /**
+     * Devuelve la fecha de salida como String.
+     * @return 
+     */
     public String getFechaSalidaString(){
-String time;
+        
+        String time;
+        
         try{
+            
             time = DEFAUL_TIME_FORMAT.format(fin.getTime());
+            
         } catch(NullPointerException e){
+            
             time = NULL_DATE;
         }
         return time;
     }
 
     public boolean fijado() {
+        
         return !((getInicio() == null) || (getFin() == null));
     }
 }

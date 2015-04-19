@@ -1,40 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.home;
 
-import main.Start;
-import view.home.HomeVista;
-import view.utils.DatePicker;
-
 /**
- *
- * @author adri
+ * Clase <code>ControllerHome</code> que sirve de controlador para la vista
+ * <code>HomeVista</code>.
+ * 
+ * @author Adrián Calvo Rojo
+ * @author Sergio García Prado
  */
+
+import main.Start;
+
 public class ControllerHome {
     
     private HomeVista vista;
 
+    /**
+     * Constructor de la clase <code>ControllerHome</code>
+     * @param vista vista a controlar
+     */
     public ControllerHome(HomeVista vista) {
         this.vista = vista;
     }
     
+    /**
+     * Cierra el programa.
+     */
     public void salir(){
+        
         System.exit(0);
     }
 
+    /**
+     * Pasa al estado de CrearReserva.
+     */
     public void hacerReserva() {
         
         Start.crearReserva();
     }
 
+    /**
+     * Pasa al estado de ListaReservas.
+     */
     public void verReservas() {
         Start.listaReservas();
     }
 
-    void iniciarSesion() {
+    /**
+     * Pasa al estado de IniciarSesion.
+     */
+    public void iniciarSesion() {
         Start.iniciarSesion();
     }
     
