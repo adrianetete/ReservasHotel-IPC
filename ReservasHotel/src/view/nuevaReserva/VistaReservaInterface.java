@@ -14,7 +14,6 @@ public interface VistaReservaInterface {
     public void setJlabelFechaEntradaString(String value);
     
     public void setJlabelFechaSalidaString(String value);
-    
 
     public int getJComboBoxEstancia();
     
