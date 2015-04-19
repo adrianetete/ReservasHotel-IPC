@@ -144,7 +144,7 @@ public class Reserva {
             
         } else if (getPlazas() == 1 && value == TipoHabitacion.DOBLE){
             
-            throw new IllegalArgumentException("Las habitaciones doblesson para dos plazas.");
+            throw new IllegalArgumentException("Las habitaciones dobles son para dos plazas.");
             
         } else if (getPlazas() == 2 && value == TipoHabitacion.DOBLE_DE_USO_INDIVIDUAL){
             

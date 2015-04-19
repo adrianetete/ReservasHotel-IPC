@@ -1,18 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.utils;
+
+/**
+ * Clase <code>TableModel</code> que crea una tabla para visualizar las
+ * reservas del usuario.
+ * 
+ * @author Adrián Calvo Rojo
+ * @author Sergio García Prado
+ */
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import model.Reserva;
 
-/**
- *
- * @author garciparedes
- */
 public class TableModel extends AbstractTableModel {
     
     private static final String FECHA_ENTRADA = "Fecha de Entrada";
@@ -31,6 +30,10 @@ public class TableModel extends AbstractTableModel {
     
     private Object[][] data;
     
+    /**
+     * Constructor de la clase <code>TableModel</code> 
+     * @param listaReservas 
+     */
     public TableModel(ArrayList<Reserva> listaReservas){
         super();
         data = new Object[listaReservas.size()][4];
@@ -39,29 +42,55 @@ public class TableModel extends AbstractTableModel {
         }
     }
 
+    /**
+     * Devuelve numero de columnas.
+     * @return 
+     */
     public int getColumnCount() {
         return columnNames.length;
     }
 
+    /**
+     * Devuelve el numero de filas.
+     * @return 
+     */
     public int getRowCount() {
         return data.length;
     }
 
+    /**
+     * Devuelve el nombre de la columna.
+     * @param col
+     * @return 
+     */
     public String getColumnName(int col) {
         return columnNames[col];
     }
 
+    /**
+     * Devuelve el objeto en una posicion [fila][columna]
+     * @param row
+     * @param col
+     * @return 
+     */
     public Object getValueAt(int row, int col) {
         return data[row][col];
     }
 
+    /**
+     * Devuelve la clase de una columna dada.
+     * @param c
+     * @return 
+     */
     public Class getColumnClass(int c) {
         return getValueAt(0, c).getClass();
     }
 
-    /*
-     * Don't need to implement this method unless your table's
-     * data can change.
+    /**
+     * Establece un valor en una posicion determinada.
+     * @param value
+     * @param row
+     * @param col 
      */
     public void setValueAt(Object value, int row, int col) {
         data[row][col] = value;

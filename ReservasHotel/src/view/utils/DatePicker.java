@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.utils;
 
 /**
- *
- * @author garciparedes
+ * Clase <code>DatePicker</code> que crea una vista con un calendario
+ * donde el usuario puede ir viendo todas las fechas y seleccionar
+ * mas facil la que quiera.
+ * 
+ * @author Adrián Calvo Rojo
+ * @author Sergio García Prado
  */
+
 import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
@@ -30,6 +30,9 @@ public class DatePicker{
     JLabel[] labels = new JLabel[7];
             
  
+    /**
+     * Constructor de la clase <code>DatePicker</code>
+     */
     public DatePicker() {
         gregorianCalendar.set(GregorianCalendar.DAY_OF_MONTH, 1);
 
@@ -67,7 +70,6 @@ public class DatePicker{
         JPanel controls = new JPanel(new GridLayout(1, 4));
         JPanel header = new JPanel(new GridLayout(2, 1));
 
-
         // Last year button
         JButton lastYear = new JButton("<<");
         lastYear.addActionListener(new ActionListener() {
@@ -87,8 +89,6 @@ public class DatePicker{
             }
         });
         controls.add(previous);
-
-        
 
         // Next month button
         JButton next = new JButton(">");
@@ -113,8 +113,6 @@ public class DatePicker{
         header.add(controls,BorderLayout.NORTH);
         header.add(jLabelMonthYear,BorderLayout.SOUTH);
 
-        // Selected Date @ popup
-        //controls.add(jLabelMonthYear);
         dialog.add(header, BorderLayout.NORTH);
         dialog.add(calendario, BorderLayout.CENTER);
         dialog.pack();
@@ -122,15 +120,14 @@ public class DatePicker{
         displayDate();
         dialog.setVisible(true);
     }
- 
     
-        
-    
+    /**
+     * Muestra la fecha.
+     */
     public void displayDate() {
         for (int x = 0; x < button.length; x++) {
             button[x].setText("");
         }
-
         
         SimpleDateFormat sdf = new java.text.SimpleDateFormat("MMMM 'de' yyyy");
         
@@ -147,6 +144,10 @@ public class DatePicker{
         dialog.repaint();
     }
  
+    /**
+     * Establece como fecha, la seleccionada.
+     * @return 
+     */
     public GregorianCalendar setPickedDate() {
         // Set the return date format
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy");

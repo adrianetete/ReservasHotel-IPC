@@ -1,7 +1,7 @@
 package view.home;
 
 /**
- * Clase <code>HomeVista</code> muestra la vista principal.
+ * Clase <code>HomeVista</code> que muestra la vista principal.
  * 
  * @author Adrián Calvo Rojo
  * @author Sergio García Prado

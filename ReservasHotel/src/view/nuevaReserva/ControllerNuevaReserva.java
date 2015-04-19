@@ -1,24 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.nuevaReserva;
 
-import enums.TipoEstancia;
-import enums.TipoHabitacion;
-import javax.swing.JFrame;
+/**
+ * Clase <code>ControllerNuevaReserva</code> que hereda de la clase
+ * abstracta <code>ControllerReservar</code> y sirve de controlador a la vista
+ * <code>NuevaReserva</code>
+ * 
+ * 
+ * @author Adrián Calvo Rojo
+ * @author Sergio García Prado
+ */
+
 import javax.swing.JOptionPane;
 import main.Start;
 import model.Reserva;
-import view.utils.DatePicker;
 
-/**
- *
- * @author garciparedes
- */
 public class ControllerNuevaReserva extends AbstractControllerReservar {
     
+    /**
+     * Constructor de la clase <code>ControllerNuevaReserva</code>
+     * @param vista 
+     */
     public ControllerNuevaReserva(NuevaReserva vista){
         super(vista, new Reserva());
     }
