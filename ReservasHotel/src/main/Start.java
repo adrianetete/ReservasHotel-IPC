@@ -233,33 +233,64 @@ public class Start {
         listaUsuarios.add(adrianete);
     }
     
+    /**
+     * Getter del estado Home
+     * 
+     * @return objeto que representa el estado <code>Home</code>
+     */
     public static Home getStateMachineHome() {
         return homeState; 
     }
     
+    /**
+     * Getter del estado IniciarSesion
+     * 
+     * @return objeto que representa el estado <code>IniciarSesion</code>
+     */
     public static IniciarSesion getStateMachineIniciarSesion() {
         return iniciarSesionState; 
     }
    
+    /**
+     * Getter del estado ListaReservas
+     * 
+     * @return objeto que representa el estado <code>ListaReservas</code>
+     */
     public static ListaReservas getStateMachineListaReservas() {
         return listaReservasState; 
     }
 
+    /**
+     * Getter del estado CrearReserva
+     * 
+     * @return objeto que representa el estado <code>CrearReserva</code>
+     */
     public static CrearReserva getStateMachineCrearReservas() {
         return crearReservaState; 
     }
 
-    
+    /**
+     * Comprueba si hay una sesión iniciada
+     * 
+     * @return true si existe un objeto de la clase <code<Usuario</code>
+     */
     public static boolean isLoged(){
         return usuario != null;
     }
 
+    /**
+     * Oculta la ventana <code>Home</code> y abre la de <code>CrearReserva</code>
+     */
     public static void crearReserva() {
         
         homeState.ocultar();
         crearReservaState = new CrearReserva();
     }
 
+    /**
+     * Abre el estado de <code>IniciarSesion</code> si no hay nadie con 
+     * la sesión iniciada, en caso contrario, borra la sesion actual.
+     */
     public static void iniciarSesion() {
         if (!isLoged()){ 
             iniciarSesionState = new IniciarSesion();    
@@ -269,11 +300,19 @@ public class Start {
         }
     }
     
+    /** 
+     * Cierra la ventana de <code>IniciarSesion</code>
+     */
     public static void loginSucceed() { 
         
         iniciarSesionState.close();
     }
     
+    /**
+     * Si no hay ninguna sesión iniciada, abre la ventana de 
+     * <code>IniciarSesion</code> y en caso de que ya este iniciada, cambia
+     * al estado de <code>ListaReservas</code>
+     */
     public static void listaReservas(){
         
         if (!isLoged()){
@@ -285,6 +324,11 @@ public class Start {
         
     }
 
+    /**
+     * Devuelve un ArrayList con la lista de los usuarios
+     * 
+     * @return lista de usuarios
+     */
     public static ArrayList<Usuario> getListaUsuarios() {
         return listaUsuarios;
     }
@@ -301,6 +345,12 @@ public class Start {
         return hotel;
     }
 
+    /**
+     * Una vez que se crea una reserva en la aplicación se le asigna a un
+     * usuario de la lista de usuarios y se elimina del hotel.
+     * 
+     * @param reserva 
+     */
     public static void completarReserva(Reserva reserva) {
         getUsuario().addReserva(reserva);
         getHotel().removeReserva(reserva);

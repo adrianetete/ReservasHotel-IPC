@@ -1,26 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
-import javax.swing.JFrame;
+/**
+ * Clase <code>CrearReserva</code> que representa el estado del Frame
+ * encargado de getionar las reservas del hotel.
+ * 
+ * @author Adrián Calvo Rojo
+ * @author Sergio García Prado
+ */
+
 import model.Reserva;
 import view.nuevaReserva.ReservasDisponiblesVista;
 import view.nuevaReserva.NuevaReserva;
 
-/**
- *
- * @author garciparedes
- */
 public class CrearReserva {
-    
-    //private JFrame currentState;
     
     private NuevaReserva nuevaReservaState;
     private ReservasDisponiblesVista reservasDisponiblesVistaState; 
 
+    /**
+     * Constructor de la clase <code>CrearReserva</code> que crea un nuevo
+     * hilo con la ventana.
+     */
     public CrearReserva() {
         
         java.awt.EventQueue.invokeLater( 
@@ -33,6 +33,12 @@ public class CrearReserva {
         });
     }
     
+    /**
+     * Abre una nueva ventana con una iterfaz que muestra las reservas
+     * actuales del usuario y le permite crear nuevas.
+     * 
+     * @param reserva 
+     */
     public void buscarReservasDisponibles(final Reserva reserva){
         nuevaReservaState.setVisible(false);
         
@@ -50,13 +56,23 @@ public class CrearReserva {
 
     }
     
+    /**
+     * Oculta la ventana.
+     */
     public void close() {
         nuevaReservaState.setVisible(false);
     }
+    
+    /**
+     * Muestra la ventana.
+     */
     public void show(){          
         nuevaReservaState.setVisible(true);
     }
 
+    /**
+     * Oculta ambas ventanas y vuelve al estado <code>Home</code>.
+     */
     public void cancelar() {
         if (nuevaReservaState != null){
             nuevaReservaState.setVisible(false);

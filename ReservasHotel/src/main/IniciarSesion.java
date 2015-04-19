@@ -1,22 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
-import java.util.ArrayList;
-import javax.swing.JFrame;
-import model.Usuario;
-
 /**
- *
- * @author adri
+ * Clase <code>IniciarSesion</code> que representa el estado del Frame
+ * encargado de iniciar sesion en hotel con nombre y contraseña.
+ * 
+ * @author Adrián Calvo Rojo
+ * @author Sergio García Prado
  */
+
+import javax.swing.JFrame;
+
 public class IniciarSesion {
 
     private JFrame currentState;
 
+    /**
+     * Constructor de la clase <code>IniciarSesion</code> que crea un nuevo
+     * hilo con la ventana.
+     */
     public IniciarSesion() {
                
         java.awt.EventQueue.invokeLater( 
@@ -29,15 +30,20 @@ public class IniciarSesion {
         });
     }
 
+    /**
+     * Oculta la ventana.
+     */
     public void close() {
+        
         currentState.setVisible(false);
     }
+    
+    /**
+     * Muestra la ventana.
+     */
     public void show(){         
         
         currentState.setVisible(true);
     }
-        
-        
-    
     
 }
