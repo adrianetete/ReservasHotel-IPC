@@ -30,7 +30,7 @@ public class DatePicker{
     JLabel[] labels = new JLabel[7];
             
  
-    public DatePicker(JFrame parent) {
+    public DatePicker() {
         gregorianCalendar.set(GregorianCalendar.DAY_OF_MONTH, 1);
 
         dialog = new JDialog();
@@ -118,7 +118,7 @@ public class DatePicker{
         dialog.add(header, BorderLayout.NORTH);
         dialog.add(calendario, BorderLayout.CENTER);
         dialog.pack();
-        dialog.setLocationRelativeTo(parent);
+        dialog.setLocationRelativeTo(null);
         displayDate();
         dialog.setVisible(true);
     }

@@ -35,7 +35,7 @@ public abstract class AbstractControllerReservar {
     public void setFechaEntrada(){
         try {
             reserva.getPeriodo().setInicio(
-                    new DatePicker((JFrame) vistaInterface).setPickedDate()
+                    new DatePicker().setPickedDate()
             );
 
             vistaInterface.setJlabelFechaEntradaString(
@@ -52,7 +52,7 @@ public abstract class AbstractControllerReservar {
     public void setFechaSalida(){
         try{
             reserva.getPeriodo().setFin(
-                    new DatePicker((JFrame) vistaInterface).setPickedDate()
+                    new DatePicker().setPickedDate()
             );
             
             
@@ -87,6 +87,14 @@ public abstract class AbstractControllerReservar {
         } catch(ArrayIndexOutOfBoundsException e){
             reserva.setTipoHabitacion(null);
         }
+        
+    }
+    
+    void setPlazas() {
+        reserva.setPlazas(
+                vistaInterface.getJComboBoxPlazas()
+        );
+
         
     }
     

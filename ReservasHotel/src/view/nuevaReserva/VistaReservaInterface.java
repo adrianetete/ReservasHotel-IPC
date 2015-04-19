@@ -18,4 +18,6 @@ public interface VistaReservaInterface {
     public int getJComboBoxEstancia();
     
     public int getJComboBoxHabitacion();
+
+    public int getJComboBoxPlazas();
 }

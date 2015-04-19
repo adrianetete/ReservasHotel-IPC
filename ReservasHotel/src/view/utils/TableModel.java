@@ -19,12 +19,14 @@ public class TableModel extends AbstractTableModel {
     private static final String FECHA_SALIDA = "Fecha de Salida"; 
     private static final String TIPO_ALOJAMIENTO = "Tipo de Alojamiento"; 
     private static final String TIPO_HABITACION = "Tipo de Habitación"; 
+    private static final String NUM_PLAZAS = "Nº Plazas"; 
 
     private static final String[] columnNames = {
         FECHA_ENTRADA
         ,FECHA_SALIDA
         ,TIPO_ALOJAMIENTO
         ,TIPO_HABITACION
+        ,NUM_PLAZAS
     };
     
     private Object[][] data;

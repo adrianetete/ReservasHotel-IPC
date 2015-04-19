@@ -37,5 +37,5 @@ class ControllerReservasDisponibles  extends AbstractControllerReservar{
                             vista.getJTableSelectedRow()));
         }
     }
-    
+
 }

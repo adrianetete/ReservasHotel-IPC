@@ -47,6 +47,9 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
             jComboBoxHabitacion.addItem(j);
         }
         
+        jComboBoxPlazas.addItem(1);
+        jComboBoxPlazas.addItem(2);
+
         
         setJTableModel(Start.getHotel().buscarReservasDisponibles(reserva));
         jTableAlojamientoDisponible.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -57,6 +60,7 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
         
         setJComboBoxHabitacionIndex(reserva.getTipoHabitacionOrdinal()+1);
         setJComboBoxEstanciaIndex(reserva.getTipoEstanciaOrdinal()+1);
+        setJComboBoxPlazasIndex(reserva.getPlazas());
 
     }
 
@@ -81,6 +85,8 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
         lbl_estancia = new javax.swing.JLabel();
         jComboBoxEstancia = new javax.swing.JComboBox();
         btn_buscar_reserva = new javax.swing.JButton();
+        jComboBoxPlazas = new javax.swing.JComboBox();
+        lbl_plazas = new javax.swing.JLabel();
         btn_cancel = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -138,6 +144,15 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
             }
         });
 
+        jComboBoxPlazas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera" }));
+        jComboBoxPlazas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPlazasActionPerformed(evt);
+            }
+        });
+
+        lbl_plazas.setText("Nº de plazas");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,6 +163,7 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBoxPlazas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabelFechaEntrada, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,16 +171,17 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
                     .addComponent(jComboBoxHabitacion, 0, 204, Short.MAX_VALUE)
                     .addComponent(jComboBoxEstancia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_fechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_estancia)
                             .addComponent(lbl_fechaEntrada)
                             .addComponent(lbl_fechaSalida)
-                            .addComponent(lbl_habitacion))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelFechaSalida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_fechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lbl_habitacion)
+                            .addComponent(lbl_plazas))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -183,14 +200,18 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
                     .addComponent(jLabelFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_fechaSalida))
                 .addGap(18, 18, 18)
-                .addComponent(lbl_habitacion)
+                .addComponent(lbl_plazas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxPlazas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_habitacion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jComboBoxHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lbl_estancia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxEstancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_buscar_reserva))
         );
 
@@ -222,14 +243,14 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2)
                 .addContainerGap())
         );
 
@@ -264,11 +285,11 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonReservar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addGap(43, 43, 43)
                         .addComponent(btn_cancel)))
                 .addContainerGap())
         );
@@ -304,6 +325,10 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
         controller.setTipoHabitacion();
     }//GEN-LAST:event_jComboBoxHabitacionActionPerformed
 
+    private void jComboBoxPlazasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPlazasActionPerformed
+        controller.setPlazas();
+    }//GEN-LAST:event_jComboBoxPlazasActionPerformed
+
     public void setJTableModel(ArrayList<Reserva> listaReservas){
         jTableAlojamientoDisponible.setModel(
                 new TableModel(listaReservas)
@@ -325,6 +350,10 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
             jComboBoxHabitacion.setSelectedIndex(index);
     }
     
+    public void setJComboBoxPlazasIndex(int index){
+            jComboBoxPlazas.setSelectedIndex(index);
+    }
+    
     public int getJComboBoxEstancia(){
         return jComboBoxEstancia.getSelectedIndex();
     }
@@ -336,6 +365,12 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
     public int getJTableSelectedRow(){
         return jTableAlojamientoDisponible.getSelectedRow();
     }
+    
+    
+    @Override
+    public int getJComboBoxPlazas() {
+        return jComboBoxPlazas.getSelectedIndex();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar_reserva;
     private javax.swing.JButton btn_cancel;
@@ -344,6 +379,7 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
     private javax.swing.JButton jButtonReservar;
     private javax.swing.JComboBox jComboBoxEstancia;
     private javax.swing.JComboBox jComboBoxHabitacion;
+    private javax.swing.JComboBox jComboBoxPlazas;
     private javax.swing.JLabel jLabelFechaEntrada;
     private javax.swing.JLabel jLabelFechaSalida;
     private javax.swing.JPanel jPanel1;
@@ -354,5 +390,6 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
     private javax.swing.JLabel lbl_fechaEntrada;
     private javax.swing.JLabel lbl_fechaSalida;
     private javax.swing.JLabel lbl_habitacion;
+    private javax.swing.JLabel lbl_plazas;
     // End of variables declaration//GEN-END:variables
 }

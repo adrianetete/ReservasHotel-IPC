@@ -22,6 +22,7 @@ public class Reserva {
 
     private TipoEstancia tipoEstancia;
     private TipoHabitacion tipoHabitacion;
+    private int plazas;
     private boolean disponible;
     
     public static Reserva randReserva(){
@@ -30,20 +31,23 @@ public class Reserva {
 
         int ranEstancia = rand.nextInt(TipoEstancia.values().length);
         int ranHabitacion = rand.nextInt(TipoHabitacion.values().length);
-
+        int ranPlazas = rand.nextInt(2)+1;
+        
         return new Reserva(Periodo.randomPeriodo()
                 ,TipoEstancia.values()[ranEstancia]
                 , TipoHabitacion.values()[ranHabitacion]
+                ,ranPlazas
         );
     }
 
     public Reserva(Periodo periodo, TipoEstancia tipoEstancia,
-            TipoHabitacion tipoHabitacion) {
+            TipoHabitacion tipoHabitacion, int plazas) {
         super();
         
         this.periodo = periodo;
         this.tipoEstancia = tipoEstancia;
         this.tipoHabitacion = tipoHabitacion;
+        this.plazas = plazas;
         this.disponible = true;
     }
     
@@ -58,6 +62,7 @@ public class Reserva {
                 , getFechaSalidaString()
                 , getTipoEstanciaString()
                 , getTipoHabitacionString()
+                , getPlazas()
         };
         return objectArray;
     }
@@ -104,6 +109,7 @@ public class Reserva {
                 && getTipoHabitacion().coincide(reserva.getTipoHabitacion())
                 && getPeriodo().disponible(reserva.getPeriodo())
                 && isDisponible()
+                && caben(reserva.getPlazas())
                 ){
             coincide = true;
         }
@@ -133,5 +139,21 @@ public class Reserva {
         } catch(NullPointerException e){
             return -1;
         }    
+    }
+
+    public int getPlazas() {
+        return plazas;
+    }
+    
+    public void setPlazas(int value) {
+        this.plazas = value;
+    }
+
+    private boolean caben(int plazas) {
+        if (plazas == 0){ 
+            return true;
+        } else{
+            return (getPlazas() == plazas);
+        }
     }
 }
