@@ -16,7 +16,7 @@ import model.Periodo;
  *
  * @author garciparedes
  */
-public class NuevaReserva extends javax.swing.JFrame {
+public class NuevaReserva extends javax.swing.JFrame implements VistaReservaInterface {
 
     /**
      * Creates new form NuevaReserva

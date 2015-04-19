@@ -49,12 +49,20 @@ public class CrearReserva {
     }
     
     public void close() {
-        
         nuevaReservaState.setVisible(false);
     }
-    public void show(){         
-        
+    public void show(){          
         nuevaReservaState.setVisible(true);
+    }
+
+    public void cancelar() {
+        if (nuevaReservaState != null){
+            nuevaReservaState.setVisible(false);
+        }
+        
+        if (reservasDisponiblesVistaState != null){
+            reservasDisponiblesVistaState.setVisible(false);
+        }
     }
     
 }

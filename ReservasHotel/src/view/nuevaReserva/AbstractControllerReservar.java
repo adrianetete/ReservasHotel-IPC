@@ -7,6 +7,7 @@ package view.nuevaReserva;
 
 import enums.TipoEstancia;
 import enums.TipoHabitacion;
+import javax.swing.JFrame;
 import main.Start;
 import model.Reserva;
 import view.utils.DatePicker;
@@ -15,18 +16,24 @@ import view.utils.DatePicker;
  *
  * @author garciparedes
  */
-public class ControllerNuevaReserva {
-    private NuevaReserva vista;
+public abstract class AbstractControllerReservar {
     private Reserva reserva;
+    private VistaReservaInterface vista;
+
+    //private VistaReservaInterface vista;
     
-    public ControllerNuevaReserva(NuevaReserva vista){
+    public AbstractControllerReservar(VistaReservaInterface vista, Reserva reserva){
         this.vista = vista;
-        this.reserva = new Reserva();
+        this.reserva = reserva;      
     }
     
+    public Reserva getReservaActual(){
+        return reserva;
+    }
+
     public void setFechaEntrada(){
         reserva.getPeriodo().setInicio(
-                new DatePicker(vista).setPickedDate()
+                new DatePicker((JFrame) vista).setPickedDate()
         );
         
         vista.setJlabelFechaEntradaString(
@@ -37,7 +44,7 @@ public class ControllerNuevaReserva {
     
     public void setFechaSalida(){
         reserva.getPeriodo().setFin(
-                new DatePicker(vista).setPickedDate()
+                new DatePicker((JFrame) vista).setPickedDate()
         );
         
         vista.setJlabelFechaSalidaString(
@@ -66,20 +73,17 @@ public class ControllerNuevaReserva {
         try {
             reserva.setTipoHabitacion(
                 TipoHabitacion.values()[vista.getJComboBoxHabitacion()-1]
-        );
+            );
         } catch(ArrayIndexOutOfBoundsException e){
             reserva.setTipoHabitacion(null);
         }
         
     }
     
-    public void buscar(){
-        Start.crearReservaState.buscarReservasDisponibles(reserva);
-    }
+    public abstract void buscar();
     
     public void cancelar(){
-        vista.setVisible(false);
-        vista.dispose();
-    }
-   
+        Start.crearReservaState.cancelar();
+    };
+
 }

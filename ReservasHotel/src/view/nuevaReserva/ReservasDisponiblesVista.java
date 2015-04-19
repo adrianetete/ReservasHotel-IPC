@@ -19,7 +19,8 @@ import view.utils.TableModel;
  *
  * @author garciparedes
  */
-public class ReservasDisponiblesVista extends javax.swing.JFrame {
+public class ReservasDisponiblesVista extends javax.swing.JFrame 
+    implements VistaReservaInterface {
 
     private ControllerReservasDisponibles controller;
     /**
@@ -285,7 +286,6 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame {
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
 
-        //reset();
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btn_cancelActionPerformed
