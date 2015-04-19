@@ -231,7 +231,7 @@ public class NuevaReserva extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_fechaSalidaActionPerformed
 
     private void btn_buscar_reservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reservaActionPerformed
-        controller.enviar();
+        controller.buscar();
     }//GEN-LAST:event_btn_buscar_reservaActionPerformed
 
     private void jComboBoxHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHabitacionActionPerformed

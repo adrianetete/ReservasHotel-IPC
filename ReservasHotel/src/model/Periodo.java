@@ -17,6 +17,8 @@ public class Periodo {
     
     private static final String FAIL_INICIO = "La fecha de inicio debe ser anterior a la de fin.";
     private static final String FAIL_FIN = "La fecha de fin debe ser posterior a la de inicio.";
+    private static final String NULL_DATE = "--/--/--";
+    private static final SimpleDateFormat DEFAUL_TIME_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
 
     private GregorianCalendar inicio;
     private GregorianCalendar fin;
@@ -85,14 +87,22 @@ public class Periodo {
     }
 
     public String getFechaEntradaString(){
-        SimpleDateFormat timeFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String time = timeFormat.format(inicio.getTime());
+        String time;
+        try{
+            time = DEFAUL_TIME_FORMAT.format(inicio.getTime());
+        } catch(NullPointerException e){
+            time = NULL_DATE;
+        }
         return time;
     }    
     
     public String getFechaSalidaString(){
-        SimpleDateFormat timeFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String time = timeFormat.format(fin.getTime());
+String time;
+        try{
+            time = DEFAUL_TIME_FORMAT.format(fin.getTime());
+        } catch(NullPointerException e){
+            time = NULL_DATE;
+        }
         return time;
     }
 }

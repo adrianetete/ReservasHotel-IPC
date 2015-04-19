@@ -22,6 +22,7 @@ public class Reserva {
 
     private TipoEstancia tipoEstancia;
     private TipoHabitacion tipoHabitacion;
+    private boolean disponible;
     
     public static Reserva randReserva(){
         
@@ -43,6 +44,7 @@ public class Reserva {
         this.periodo = periodo;
         this.tipoEstancia = tipoEstancia;
         this.tipoHabitacion = tipoHabitacion;
+        this.disponible = true;
     }
     
     public Reserva(){
@@ -100,13 +102,36 @@ public class Reserva {
         
         if (getTipoEstancia().coincide(reserva.getTipoEstancia())
                 && getTipoHabitacion().coincide(reserva.getTipoHabitacion())
-                && getPeriodo().disponible(reserva.getPeriodo())){
+                && getPeriodo().disponible(reserva.getPeriodo())
+                && isDisponible()
+                ){
             coincide = true;
         }
         
         return coincide;
     }
-    
-    
-    
+
+    private boolean isDisponible() {
+        return disponible;
+    }
+
+    void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }  
+
+    public int getTipoEstanciaOrdinal() {
+        try{
+            return getTipoEstancia().ordinal();
+        } catch(NullPointerException e){
+            return -1;
+        }
+    }
+
+    public int getTipoHabitacionOrdinal() {
+        try{
+            return getTipoHabitacion().ordinal();
+        } catch(NullPointerException e){
+            return -1;
+        }    
+    }
 }

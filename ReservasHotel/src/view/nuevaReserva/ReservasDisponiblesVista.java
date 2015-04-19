@@ -7,8 +7,10 @@ package view.nuevaReserva;
 
 import enums.TipoEstancia;
 import enums.TipoHabitacion;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.ListSelectionModel;
 import main.Start;
 import model.Reserva;
 import view.utils.TableModel;
@@ -44,13 +46,16 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame {
             jComboBoxHabitacion.addItem(j);
         }
         
-        jTableAlojamientoDisponible.setModel(new TableModel(Start.getHotel().buscarReservasDisponibles(reserva)));
+        
+        setJTableDate(Start.getHotel().buscarReservasDisponibles(reserva));
+        jTableAlojamientoDisponible.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
         setJlabelFechaEntradaString(reserva.getFechaEntradaString());
         setJlabelFechaSalidaString(reserva.getFechaSalidaString());
        
         
-        //setJComboBoxHabitacionIndex(reserva.getTipoHabitacion().ordinal()+1);
-        //setJComboBoxEstanciaIndex(reserva.getTipoEstancia().ordinal()+1);
+        setJComboBoxHabitacionIndex(reserva.getTipoHabitacionOrdinal()+1);
+        setJComboBoxEstanciaIndex(reserva.getTipoEstanciaOrdinal()+1);
 
     }
 
@@ -110,6 +115,11 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame {
         lbl_habitacion.setText("Tipo de habitación:");
 
         jComboBoxHabitacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cualquiera" }));
+        jComboBoxHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxHabitacionActionPerformed(evt);
+            }
+        });
 
         lbl_estancia.setText("Tipo de estancia:");
 
@@ -121,6 +131,11 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame {
         });
 
         btn_buscar_reserva.setText("Buscar");
+        btn_buscar_reserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscar_reservaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -261,11 +276,11 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_fechaEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fechaEntradaActionPerformed
-        //calendarioEntrada = new DatePicker(this);
+        controller.setFechaEntrada();
     }//GEN-LAST:event_btn_fechaEntradaActionPerformed
 
     private void btn_fechaSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fechaSalidaActionPerformed
-        //calendarioSalida = new DatePicker(this);
+        controller.setFechaSalida();
     }//GEN-LAST:event_btn_fechaSalidaActionPerformed
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
@@ -280,9 +295,22 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonReservarActionPerformed
 
     private void jComboBoxEstanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstanciaActionPerformed
-        // TODO add your handling code here:
+        controller.setTipoEstancia();
     }//GEN-LAST:event_jComboBoxEstanciaActionPerformed
 
+    private void btn_buscar_reservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar_reservaActionPerformed
+        controller.buscar();
+    }//GEN-LAST:event_btn_buscar_reservaActionPerformed
+
+    private void jComboBoxHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHabitacionActionPerformed
+        controller.setTipoHabitacion();
+    }//GEN-LAST:event_jComboBoxHabitacionActionPerformed
+
+    public void setJTableDate(ArrayList<Reserva> listaReservas){
+        jTableAlojamientoDisponible.setModel(
+                new TableModel(listaReservas)
+        );
+    }
     public void setJlabelFechaEntradaString(String value){
         jLabelFechaEntrada.setText(value);
     }
@@ -296,7 +324,15 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame {
     }
     
     public void setJComboBoxHabitacionIndex(int index){
-        jComboBoxHabitacion.setSelectedIndex(index);
+            jComboBoxHabitacion.setSelectedIndex(index);
+    }
+    
+    public int getJComboBoxEstancia(){
+        return jComboBoxEstancia.getSelectedIndex();
+    }
+    
+    public int getJComboBoxHabitacion(){
+        return jComboBoxHabitacion.getSelectedIndex();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar_reserva;

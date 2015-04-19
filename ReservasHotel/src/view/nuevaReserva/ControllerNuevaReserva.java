@@ -73,7 +73,7 @@ public class ControllerNuevaReserva {
         
     }
     
-    public void enviar(){
+    public void buscar(){
         Start.crearReservaState.buscarReservasDisponibles(reserva);
     }
     

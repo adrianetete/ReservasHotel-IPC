@@ -73,6 +73,7 @@ public class Usuario {
     }
     
     public void addReserva(Reserva reserva){
+        reserva.setDisponible(false);
         getListaReservas().add(reserva);
     }
 
