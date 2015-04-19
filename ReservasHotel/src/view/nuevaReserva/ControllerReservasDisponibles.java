@@ -10,6 +10,7 @@ package view.nuevaReserva;
  * @author Sergio García Prado
  */
 
+import javax.swing.JOptionPane;
 import main.Start;
 import model.Reserva;
 
@@ -39,10 +40,18 @@ public class ControllerReservasDisponibles  extends AbstractControllerReservar{
     public void reservar() {
         
         if (vista.getJTableSelectedRow() >= 0){
-            Reserva reservaFinal = Start.getHotel().buscarReservasDisponibles(getReservaBusqueda()).get(
-                            vista.getJTableSelectedRow());
-            reservaFinal.fijarPeriodo(getReservaBusqueda());
-            Start.completarReserva(reservaFinal);
+            
+            int dialogResult = JOptionPane.showConfirmDialog (null
+                    , "¿Está seguro de que desea hacer la reserva?"
+                    ,"Atencion",
+                    JOptionPane.YES_NO_OPTION);
+            
+            if(dialogResult == JOptionPane.YES_OPTION){
+                Reserva reservaFinal = Start.getHotel().buscarReservasDisponibles(getReservaBusqueda()).get(
+                                vista.getJTableSelectedRow());
+                reservaFinal.fijarPeriodo(getReservaBusqueda());
+                Start.completarReserva(reservaFinal);
+            }
         }
     }
 

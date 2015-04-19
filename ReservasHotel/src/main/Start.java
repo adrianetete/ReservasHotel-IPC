@@ -48,6 +48,14 @@ public class Start {
     private static final String POBLACION_HOTEL = "Valladolid";
     private static final String PAIS_HOTEL = "España";
     
+    
+    /**
+     * Main del programa. 
+     * Es el que inicia todo lo demás.
+     * Según se pase un valor entre 1 y 3 se entra en una de las simulaciones
+     * que están explicadas en los metodos congiguracion-i
+     * @param args 
+     */
     public static void main(String[] args) {
         
         /* Look & Feel de programa establecido como el del sistema */

@@ -28,12 +28,12 @@ public class IniciarSesionVista extends javax.swing.JFrame {
         panelInicioSesion = new javax.swing.JPanel();
         lbl_usuario = new javax.swing.JLabel();
         txt_usuario = new javax.swing.JTextField();
-        txt_password = new javax.swing.JTextField();
         lbl_password = new javax.swing.JLabel();
         btn_iniciar = new javax.swing.JButton();
         lbl_olvidePassword = new javax.swing.JLabel();
         lbl_ayuda = new javax.swing.JLabel();
         jButtonCancell = new javax.swing.JButton();
+        txt_password = new javax.swing.JPasswordField();
 
         panelInicioSesion.setBorder(javax.swing.BorderFactory.createTitledBorder("Iniciar Sesión"));
 
@@ -77,6 +77,12 @@ public class IniciarSesionVista extends javax.swing.JFrame {
             }
         });
 
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelInicioSesionLayout = new javax.swing.GroupLayout(panelInicioSesion);
         panelInicioSesion.setLayout(panelInicioSesionLayout);
         panelInicioSesionLayout.setHorizontalGroup(
@@ -85,22 +91,25 @@ public class IniciarSesionVista extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelInicioSesionLayout.createSequentialGroup()
-                        .addComponent(lbl_olvidePassword)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbl_ayuda)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(btn_iniciar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonCancell))
-                    .addGroup(panelInicioSesionLayout.createSequentialGroup()
                         .addGroup(panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_usuario)
                             .addComponent(lbl_password))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelInicioSesionLayout.createSequentialGroup()
+                                .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txt_password))
+                        .addGap(3, 3, 3))
+                    .addGroup(panelInicioSesionLayout.createSequentialGroup()
+                        .addComponent(lbl_olvidePassword)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_ayuda)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_password, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                            .addComponent(txt_usuario))))
-                .addContainerGap())
+                        .addComponent(btn_iniciar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonCancell)))
+                .addGap(3, 3, 3))
         );
         panelInicioSesionLayout.setVerticalGroup(
             panelInicioSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,6 +188,10 @@ public class IniciarSesionVista extends javax.swing.JFrame {
         controller.help();
     }//GEN-LAST:event_lbl_ayudaMouseClicked
 
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_passwordActionPerformed
+
     public String getJTextFieldUsername(){
         return txt_usuario.getText();
     }
@@ -196,7 +209,7 @@ public class IniciarSesionVista extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_password;
     private javax.swing.JLabel lbl_usuario;
     private javax.swing.JPanel panelInicioSesion;
-    private javax.swing.JTextField txt_password;
+    private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
 }

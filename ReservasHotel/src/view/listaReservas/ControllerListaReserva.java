@@ -8,6 +8,7 @@ package view.listaReservas;
  * @author Sergio García Prado
  */
 
+import javax.swing.JOptionPane;
 import main.Start;
 
 public class ControllerListaReserva {
@@ -27,9 +28,17 @@ public class ControllerListaReserva {
      */
     public void eliminarReserva(){
         if (vista.getJTableSelectedRow() >= 0){
-            Start.getHotel().getListaReservas().add(
-                    Start.getUsuario().getListaReservas().remove(vista.getJTableSelectedRow())
-            );
+            
+            int dialogResult = JOptionPane.showConfirmDialog (null
+                    , "¿Está seguro de que desea eliminar la reserva?"
+                    ,"Atencion",
+                    JOptionPane.YES_NO_OPTION);
+            
+            if(dialogResult == JOptionPane.YES_OPTION){
+                Start.getHotel().getListaReservas().add(
+                        Start.getUsuario().getListaReservas().remove(vista.getJTableSelectedRow())
+                );
+            }
             
             vista.setJTableModel(Start.getUsuario().getListaReservas());
         }
