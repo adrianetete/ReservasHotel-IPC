@@ -23,6 +23,7 @@ public class IniciarSesion {
             new Runnable() {
                 public void run() {
                 currentState = new view.iniciarsesion.IniciarSesionVista(); 
+                currentState.setLocationRelativeTo(null);
                 currentState.setVisible(true);
             } 
         });

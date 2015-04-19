@@ -27,6 +27,7 @@ public class CrearReserva {
             new Runnable() {
                 public void run() {
                 nuevaReservaState = new view.nuevaReserva.NuevaReserva(); 
+                nuevaReservaState.setLocationRelativeTo(null);
                 nuevaReservaState.setVisible(true);
             } 
         });
@@ -40,6 +41,7 @@ public class CrearReserva {
             java.awt.EventQueue.invokeLater(new Runnable() {
                     public void run() {
                         reservasDisponiblesVistaState = new ReservasDisponiblesVista(reserva);
+                        reservasDisponiblesVistaState.setLocationRelativeTo(null);
                         reservasDisponiblesVistaState.setVisible(true);
 
                 } 

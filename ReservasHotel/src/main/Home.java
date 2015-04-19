@@ -22,9 +22,14 @@ public class Home {
             new Runnable() {
                 public void run() {
                 currentState = new view.home.HomeVista();
+                currentState.setLocationRelativeTo(null);
                 currentState.setVisible(true);
             } 
         });
+    }
+    
+    public JFrame getCurrentFrame(){
+        return currentState;
     }
 
     public void update() {

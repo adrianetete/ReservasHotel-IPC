@@ -8,6 +8,7 @@ package view.nuevaReserva;
 import enums.TipoEstancia;
 import enums.TipoHabitacion;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import main.Start;
 import model.Reserva;
 import view.utils.DatePicker;
@@ -32,34 +33,43 @@ public abstract class AbstractControllerReservar {
     }
 
     public void setFechaEntrada(){
-        reserva.getPeriodo().setInicio(
-                new DatePicker((JFrame) vistaInterface).setPickedDate()
-        );
-        
-        vistaInterface.setJlabelFechaEntradaString(
-                reserva.getPeriodo().getFechaEntradaString()
-        );
+        try {
+            reserva.getPeriodo().setInicio(
+                    new DatePicker((JFrame) vistaInterface).setPickedDate()
+            );
 
+            vistaInterface.setJlabelFechaEntradaString(
+                    reserva.getPeriodo().getFechaEntradaString()
+            );
+        } catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog((JFrame) vistaInterface,
+            e.getMessage(),
+            "Error en la fecha",
+            JOptionPane.PLAIN_MESSAGE);
+        }
     }
     
     public void setFechaSalida(){
-        reserva.getPeriodo().setFin(
-                new DatePicker((JFrame) vistaInterface).setPickedDate()
-        );
-        
-        vistaInterface.setJlabelFechaSalidaString(
-                reserva.getPeriodo().getFechaSalidaString()
-        );
+        try{
+            reserva.getPeriodo().setFin(
+                    new DatePicker((JFrame) vistaInterface).setPickedDate()
+            );
+            
+            
+            vistaInterface.setJlabelFechaSalidaString(
+                    reserva.getPeriodo().getFechaSalidaString()
+            );
+            
+        } catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog((JFrame) vistaInterface,
+            e.getMessage(),
+            "Error en la fecha",
+            JOptionPane.PLAIN_MESSAGE);
+        }
     }
     
     public void setTipoEstancia(){
-        /** 
-         * Esta comprobacion se hace aqui
-         * por que no tiene que ver con el
-         * modeo sino con que se sale del array 
-         * antes de que interactue con el.
-         */
-       
+        
         try{
             reserva.setTipoEstancia(
                     TipoEstancia.values()[vistaInterface.getJComboBoxEstancia()-1]

@@ -21,8 +21,9 @@ public class ListaReservas {
         java.awt.EventQueue.invokeLater( 
             new Runnable() {
                 public void run() {
-                currentState = new ListaReservasVista();
-                currentState.setVisible(true);
+                    currentState = new ListaReservasVista();
+                    currentState.setLocationRelativeTo(null);
+                    currentState.setVisible(true);
                 
             } 
         });

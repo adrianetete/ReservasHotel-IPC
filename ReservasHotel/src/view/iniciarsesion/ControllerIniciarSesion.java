@@ -44,14 +44,14 @@ public class ControllerIniciarSesion {
         Start.getStateMachineIniciarSesion().close();
     }
 
-    void forgotPassWord() {
+    public void forgotPassWord() {
         JOptionPane.showMessageDialog(vista,
             "La contraseña por defecto es: " +  Usuario.DEFAULT_PASSWORD,
             "Olvidé mi contraseña",
             JOptionPane.PLAIN_MESSAGE);
     }
 
-    void help() {
+    public void help() {
         JOptionPane.showMessageDialog(vista,
             "Los nombres de usuario disponibles son los siguientes: \n"
                 + Usuario.getUsernamesString(Start.getListaUsuarios()),
