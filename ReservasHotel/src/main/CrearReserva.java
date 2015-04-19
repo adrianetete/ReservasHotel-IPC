@@ -63,6 +63,7 @@ public class CrearReserva {
         if (reservasDisponiblesVistaState != null){
             reservasDisponiblesVistaState.setVisible(false);
         }
+        Start.homeState.mostrar();
     }
     
 }

@@ -27,7 +27,16 @@ class ControllerReservasDisponibles  extends AbstractControllerReservar{
     
     @Override
     public void buscar(){
-        vista.setJTableDate(Start.getHotel().buscarReservasDisponibles(getReservaActual()));
+        vista.setJTableModel(Start.getHotel().buscarReservasDisponibles(getReservaActual()));
+    }
+
+    public void reservar() {
+        if (vista.getJTableSelectedRow() >= 0){
+            Start.completarReserva(
+                    Start.getHotel().buscarReservasDisponibles(getReservaActual()).get(
+                            vista.getJTableSelectedRow()));
+        }
+        System.out.println(vista.getJTableSelectedRow());
     }
     
 }

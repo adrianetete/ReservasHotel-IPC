@@ -30,4 +30,14 @@ public class Home {
     public void update() {
         ((HomeVista) currentState).update();
     }
+
+    public void mostrar() {
+        currentState.setVisible(true);
+        ((HomeVista) currentState).update();
+
+    }
+
+    public void ocultar() {
+        currentState.setVisible(false);
+    }
 }

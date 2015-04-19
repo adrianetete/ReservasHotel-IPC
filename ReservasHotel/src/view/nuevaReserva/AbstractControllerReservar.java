@@ -18,12 +18,12 @@ import view.utils.DatePicker;
  */
 public abstract class AbstractControllerReservar {
     private Reserva reserva;
-    private VistaReservaInterface vista;
+    private VistaReservaInterface vistaInterface;
 
     //private VistaReservaInterface vista;
     
     public AbstractControllerReservar(VistaReservaInterface vista, Reserva reserva){
-        this.vista = vista;
+        this.vistaInterface = vista;
         this.reserva = reserva;      
     }
     
@@ -33,10 +33,10 @@ public abstract class AbstractControllerReservar {
 
     public void setFechaEntrada(){
         reserva.getPeriodo().setInicio(
-                new DatePicker((JFrame) vista).setPickedDate()
+                new DatePicker((JFrame) vistaInterface).setPickedDate()
         );
         
-        vista.setJlabelFechaEntradaString(
+        vistaInterface.setJlabelFechaEntradaString(
                 reserva.getPeriodo().getFechaEntradaString()
         );
 
@@ -44,10 +44,10 @@ public abstract class AbstractControllerReservar {
     
     public void setFechaSalida(){
         reserva.getPeriodo().setFin(
-                new DatePicker((JFrame) vista).setPickedDate()
+                new DatePicker((JFrame) vistaInterface).setPickedDate()
         );
         
-        vista.setJlabelFechaSalidaString(
+        vistaInterface.setJlabelFechaSalidaString(
                 reserva.getPeriodo().getFechaSalidaString()
         );
     }
@@ -62,7 +62,7 @@ public abstract class AbstractControllerReservar {
        
         try{
             reserva.setTipoEstancia(
-                    TipoEstancia.values()[vista.getJComboBoxEstancia()-1]
+                    TipoEstancia.values()[vistaInterface.getJComboBoxEstancia()-1]
             );
         } catch(ArrayIndexOutOfBoundsException e){
             reserva.setTipoEstancia(null);
@@ -72,7 +72,7 @@ public abstract class AbstractControllerReservar {
     public void setTipoHabitacion(){
         try {
             reserva.setTipoHabitacion(
-                TipoHabitacion.values()[vista.getJComboBoxHabitacion()-1]
+                TipoHabitacion.values()[vistaInterface.getJComboBoxHabitacion()-1]
             );
         } catch(ArrayIndexOutOfBoundsException e){
             reserva.setTipoHabitacion(null);

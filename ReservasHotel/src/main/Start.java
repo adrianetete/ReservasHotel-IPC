@@ -77,11 +77,7 @@ public class Start {
     public static IniciarSesion getStateMachineIniciarSesion() {
         return iniciarSesionState; 
     }
-    
-    
-    public static PerfilUsuario getStateMachinePerfilUsuario() {
-        return perfilUsuarioState; 
-    }
+   
     
     public static boolean isLoged(){
         return usuario != null;
@@ -89,6 +85,7 @@ public class Start {
 
     public static void crearReserva() {
         
+        homeState.ocultar();
         crearReservaState = new CrearReserva();
     }
 
@@ -111,7 +108,8 @@ public class Start {
         if (!isLoged()){
             iniciarSesion();
         } else {
-                listaReservasState = new ListaReservas();
+            homeState.ocultar();
+            listaReservasState = new ListaReservas();
         }
         
     }
@@ -130,5 +128,11 @@ public class Start {
     
     public static Hotel getHotel(){
         return hotel;
+    }
+
+    public static void completarReserva(Reserva reserva) {
+        getUsuario().addReserva(reserva);
+        getHotel().getListaReservas().remove(reserva);
+        crearReservaState.cancelar();
     }
 }

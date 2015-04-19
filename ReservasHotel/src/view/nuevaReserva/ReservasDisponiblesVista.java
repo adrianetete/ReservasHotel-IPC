@@ -48,7 +48,7 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
         }
         
         
-        setJTableDate(Start.getHotel().buscarReservasDisponibles(reserva));
+        setJTableModel(Start.getHotel().buscarReservasDisponibles(reserva));
         jTableAlojamientoDisponible.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         setJlabelFechaEntradaString(reserva.getFechaEntradaString());
@@ -285,13 +285,11 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
     }//GEN-LAST:event_btn_fechaSalidaActionPerformed
 
     private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-
-        this.setVisible(false);
-        this.dispose();
+        controller.cancelar();
     }//GEN-LAST:event_btn_cancelActionPerformed
 
     private void jButtonReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReservarActionPerformed
-        // TODO add your handling code here:
+        controller.reservar();
     }//GEN-LAST:event_jButtonReservarActionPerformed
 
     private void jComboBoxEstanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEstanciaActionPerformed
@@ -306,7 +304,7 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
         controller.setTipoHabitacion();
     }//GEN-LAST:event_jComboBoxHabitacionActionPerformed
 
-    public void setJTableDate(ArrayList<Reserva> listaReservas){
+    public void setJTableModel(ArrayList<Reserva> listaReservas){
         jTableAlojamientoDisponible.setModel(
                 new TableModel(listaReservas)
         );
@@ -333,6 +331,10 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
     
     public int getJComboBoxHabitacion(){
         return jComboBoxHabitacion.getSelectedIndex();
+    }
+    
+    public int getJTableSelectedRow(){
+        return jTableAlojamientoDisponible.getSelectedRow();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar_reserva;

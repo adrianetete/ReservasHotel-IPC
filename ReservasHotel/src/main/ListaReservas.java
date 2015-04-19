@@ -28,8 +28,10 @@ public class ListaReservas {
         });
     }
 
-    public void close() {
+    public void cancelar() {
         currentState.setVisible(false);
+        Start.homeState.mostrar();
+
     }
     public void show(){         
         
