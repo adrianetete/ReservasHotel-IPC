@@ -49,8 +49,8 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame {
         setJlabelFechaSalidaString(reserva.getFechaSalidaString());
        
         
-        setJComboBoxHabitacionIndex(reserva.getTipoHabitacion().ordinal()+1);
-        setJComboBoxEstanciaIndex(reserva.getTipoEstancia().ordinal()+1);
+        //setJComboBoxHabitacionIndex(reserva.getTipoHabitacion().ordinal()+1);
+        //setJComboBoxEstanciaIndex(reserva.getTipoEstancia().ordinal()+1);
 
     }
 

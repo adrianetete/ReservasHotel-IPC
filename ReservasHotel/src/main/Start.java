@@ -32,7 +32,11 @@ public class Start {
     
     public static void main(String[] args) {
         
-        hotel = new Hotel(200,"hotelUVA", "","" ,"");
+        hotel = new Hotel(200,"Hotel UVA", "10am - 10pm"
+                ,"978-329-545" ,"hotel@uva.es"
+                ,"C: Sin Nombre Nº 34", "Valladolid"
+                ,"España"
+        );
         try {
             // Set System L&F
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

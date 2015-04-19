@@ -26,7 +26,6 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanelUserInfo" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jButtonHacerReserva" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -37,12 +36,13 @@
                       <Component id="jButtonExit" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jLabelNombreHotel" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jLabelEstadoSesion" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabelTitle" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanelUserInfo" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
@@ -51,15 +51,15 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="20" max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="75" max="-2" attributes="0"/>
+              <EmptySpace pref="11" max="32767" attributes="0"/>
+              <Component id="jLabelNombreHotel" min="-2" pref="75" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
               <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelUserInfo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
               <Component id="jLabelEstadoSesion" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -125,7 +125,7 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="lbl_apellidos" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbl_reservas" alignment="0" pref="155" max="32767" attributes="0"/>
-                      <Component id="lbl_nombre" max="32767" attributes="0"/>
+                      <Component id="lbl_nombre" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -204,7 +204,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIniciarSesionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jLabelNombreHotel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="48" style="0"/>
@@ -252,7 +252,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Contacto"/>
+                <TitledBorder title="Datos Principales"/>
               </Border>
             </Property>
           </Properties>
@@ -260,15 +260,99 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabel9" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel3" alignment="0" pref="155" max="32767" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelTelefono" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelHorario" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDisponibilidad" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="70" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDisponibilidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelHorario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Disponibilidad:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Horario de Apertura:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel8">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Tel&#xe9;fono"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel9">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Email:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEmail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel13"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelTelefono">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel14"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelHorario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel15"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDisponibilidad">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel16"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
@@ -282,15 +366,84 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLabel5" alignment="0" pref="155" max="32767" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelDireccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPoblacion" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPais" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="66" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPoblacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelPais" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel6">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Pa&#xed;s:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelPais">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="jLabel10"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelPoblacion">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="jLabel11"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDireccion">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="text" type="java.lang.String" value="jLabel12"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>

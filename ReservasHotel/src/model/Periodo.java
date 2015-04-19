@@ -73,8 +73,8 @@ public class Periodo {
     public boolean disponible(Periodo periodo) {
         boolean disponible = true;
         
-        if(getFin().before(periodo.getInicio()) 
-                || getInicio().after(periodo.getFin())
+        if(getInicio().after(periodo.getInicio()) 
+                || getFin().before(periodo.getFin())
                 ){
             disponible = false;
         }
