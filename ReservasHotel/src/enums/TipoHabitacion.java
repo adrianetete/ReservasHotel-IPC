@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package enums;
 
 /**
- *
- * @author garciparedes
+ * Clase <code>TipoHabitacion</code> que contiene todos los tipos
+ * de habitaciones del hotel:
+ * 
+ * <li>{@link #INDIVIDUAL}</li>
+ * <li>{@link #DOBLE}</li>
+ * <li>{@link #DOBLE_DE_USO_INDIVIDUAL}</li>
+ * <li>{@link #SUPERIOR}</li>
+ * <li>{@link #SUITE}</li>
+ * 
+ * @author Adrián Calvo Rojo
+ * @author Sergio García Prado
  */
+
 public enum TipoHabitacion {
     
     INDIVIDUAL("Individual"),
@@ -19,6 +24,11 @@ public enum TipoHabitacion {
     
     private String name;
     
+    /**
+     * Constructor de la clase TipoHabitacion encargado de asignar el tipo.
+     * 
+     * @param name 
+     */
     private TipoHabitacion(String name) {
         this.name = name;
     }
@@ -28,6 +38,12 @@ public enum TipoHabitacion {
         return name;
     }
 
+    /**
+     * Compara un objeto TipoHabitacion, dado por parámetro, con si mismo
+     * 
+     * @param tipoHabitacion objeto instanciado de TipoHabitacion
+     * @return 
+     */
     public boolean coincide(TipoHabitacion tipoHabitacion) {
         boolean coincide = false;
         

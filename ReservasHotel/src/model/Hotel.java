@@ -17,7 +17,6 @@ public class Hotel {
     private String horario;
     private String telefono;
     private String email;
-    
     private String direccion;
     private String poblacion;
     private String pais;
