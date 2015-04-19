@@ -64,9 +64,19 @@ public class IniciarSesionVista extends javax.swing.JFrame {
 
         lbl_olvidePassword.setForeground(new java.awt.Color(0, 53, 194));
         lbl_olvidePassword.setText("Olvide mi contraseña");
+        lbl_olvidePassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_olvidePasswordMouseClicked(evt);
+            }
+        });
 
         lbl_ayuda.setForeground(new java.awt.Color(0, 53, 194));
         lbl_ayuda.setText("Ayuda");
+        lbl_ayuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_ayudaMouseClicked(evt);
+            }
+        });
 
         jButtonCancell.setText("Cancelar");
         jButtonCancell.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +178,14 @@ public class IniciarSesionVista extends javax.swing.JFrame {
     private void jButtonCancellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancellActionPerformed
         controller.cancel();
     }//GEN-LAST:event_jButtonCancellActionPerformed
+
+    private void lbl_olvidePasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_olvidePasswordMouseClicked
+        controller.forgotPassWord();
+    }//GEN-LAST:event_lbl_olvidePasswordMouseClicked
+
+    private void lbl_ayudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ayudaMouseClicked
+        controller.help();
+    }//GEN-LAST:event_lbl_ayudaMouseClicked
 
     public String getJTextFieldUsername(){
         return txt_usuario.getText();

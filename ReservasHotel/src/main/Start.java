@@ -1,9 +1,6 @@
 package main;
 
-import enums.TipoEstancia;
-import enums.TipoHabitacion;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import model.Hotel;
@@ -61,7 +58,7 @@ public class Start {
         
         listaUsuarios.add(garciparedes);
         listaUsuarios.add(new Usuario("adrianete", "Adrian", "Calvo Rojo"));
-        listaUsuarios.add(new Usuario("perico", "Perico", "de los Palotes"));
+        listaUsuarios.add(new Usuario("menganito", "Perico", "de los Palotes"));
 
         usuario = garciparedes;
         homeState = new Home();

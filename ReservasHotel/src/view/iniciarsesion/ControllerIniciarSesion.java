@@ -6,6 +6,7 @@
 package view.iniciarsesion;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import main.Start;
 import model.Usuario;
 
@@ -41,6 +42,21 @@ public class ControllerIniciarSesion {
 
     public void cancel() {
         Start.getStateMachineIniciarSesion().close();
+    }
+
+    void forgotPassWord() {
+        JOptionPane.showMessageDialog(vista,
+            "La contraseña por defecto es: " +  Usuario.DEFAULT_PASSWORD,
+            "Olvidé mi contraseña",
+            JOptionPane.PLAIN_MESSAGE);
+    }
+
+    void help() {
+        JOptionPane.showMessageDialog(vista,
+            "Los nombres de usuario disponibles son los siguientes: \n"
+                + Usuario.getUsernamesString(Start.getListaUsuarios()),
+            "Ayuda",
+            JOptionPane.PLAIN_MESSAGE);
     }
     
 }

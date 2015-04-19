@@ -159,6 +159,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Olvide mi contrase&#xf1;a"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_olvidePasswordMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lbl_ayuda">
               <Properties>
@@ -167,6 +170,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ayuda"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_ayudaMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonCancell">
               <Properties>

@@ -49,11 +49,14 @@ public class HomeVista extends javax.swing.JFrame {
             setJLabelReservasText(String.valueOf(Start.getUsuario().getNumReservas()));
             setJButtonIniciarSesionText(CERRAR_SESION); 
             setJLabelEstadoSesionText(SESION_INICIADA + Start.getUsuario().getUsername());
+            setJButtonHacerReservaEnabled(true);
+            setJButtonVerReservasEnabled(true);
 
         } else {
             setJButtonIniciarSesionText(INICIAR_SESION);
             setJLabelEstadoSesionText(SESION_NO_INICIADA);
-
+            setJButtonHacerReservaEnabled(false);
+            setJButtonVerReservasEnabled(false);
         }
     }
 
@@ -445,6 +448,16 @@ public class HomeVista extends javax.swing.JFrame {
     public void setJLabelPaisText(String value){
         jLabelPais.setText(value);
     }
+    
+    public void setJButtonHacerReservaEnabled(boolean value){
+        jButtonHacerReserva.setEnabled(value);
+    }
+    
+    public void setJButtonVerReservasEnabled(boolean value){
+        jButtonVerReservas.setEnabled(value);
+    }
+    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonExit;

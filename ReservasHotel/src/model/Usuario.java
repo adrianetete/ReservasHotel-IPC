@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Usuario {
     
-    private static final String DEFAULT_PASSWORD = "default";
-    
+    public static final String DEFAULT_PASSWORD = "default";
+
     private String nombre;
     private String apellidos;
     
@@ -75,6 +75,17 @@ public class Usuario {
     public void addReserva(Reserva reserva){
         reserva.setDisponible(false);
         getListaReservas().add(reserva);
+    }
+    
+    public static String getUsernamesString(ArrayList<Usuario> listaUsuarios){
+        StringBuilder result = new StringBuilder();
+        
+        for (int i = 0 ; i < listaUsuarios.size(); i++){
+            result.append(listaUsuarios.get(i).getUsername());
+            result.append(System.getProperty("line.separator"));
+
+        }
+        return result.toString();
     }
 
 }
