@@ -21,7 +21,10 @@ public class ControllerListaReserva {
     
     public void eliminarReserva(){
         if (vista.getJTableSelectedRow() >= 0){
-            Start.getUsuario().getListaReservas().remove(vista.getJTableSelectedRow());
+            Start.getHotel().getListaReservas().add(
+                    Start.getUsuario().getListaReservas().remove(vista.getJTableSelectedRow())
+            );
+            
             vista.setJTableModel(Start.getUsuario().getListaReservas());
         }
     }

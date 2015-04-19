@@ -13,7 +13,7 @@ public enum TipoHabitacion {
     
     INDIVIDUAL("Individual"),
     DOBLE("Doble"),
-    DOBLEDEUSOINDIVIDUAL("Doble de uso individual"),
+    DOBLE_DE_USO_INDIVIDUAL("Doble de uso individual"),
     SUPERIOR("Superior"),
     SUITE("Suite");
     

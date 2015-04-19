@@ -285,6 +285,19 @@ public class NuevaReserva extends javax.swing.JFrame implements VistaReservaInte
     public int getJComboBoxPlazas() {
         return jComboBoxPlazas.getSelectedIndex();
     }
+    
+    public void setJComboBoxEstanciaIndex(int index){
+        jComboBoxEstancia.setSelectedIndex(index);
+    }
+    
+    public void setJComboBoxHabitacionIndex(int index){
+            jComboBoxHabitacion.setSelectedIndex(index);
+    }
+    
+    public void setJComboBoxPlazasIndex(int index){
+            jComboBoxPlazas.setSelectedIndex(index);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar_reserva;
     private javax.swing.JButton btn_cancel;
@@ -302,4 +315,5 @@ public class NuevaReserva extends javax.swing.JFrame implements VistaReservaInte
     private javax.swing.JLabel lbl_habitacion;
     private javax.swing.JLabel lbl_plazas;
     // End of variables declaration//GEN-END:variables
+
 }

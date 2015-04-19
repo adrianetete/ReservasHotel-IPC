@@ -7,6 +7,8 @@ package view.nuevaReserva;
 
 import enums.TipoEstancia;
 import enums.TipoHabitacion;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import main.Start;
 import model.Reserva;
 import view.utils.DatePicker;
@@ -16,7 +18,6 @@ import view.utils.DatePicker;
  * @author garciparedes
  */
 public class ControllerNuevaReserva extends AbstractControllerReservar {
-    //private NuevaReserva vista;
     
     public ControllerNuevaReserva(NuevaReserva vista){
         super(vista, new Reserva());
@@ -24,7 +25,15 @@ public class ControllerNuevaReserva extends AbstractControllerReservar {
     
     @Override
     public void buscar(){
-        Start.getStateMachineCrearReservas().buscarReservasDisponibles(getReservaActual());
+        if (getReservaBusqueda().getPeriodo().fijado()){
+            Start.getStateMachineCrearReservas().buscarReservasDisponibles(getReservaBusqueda());
+        } else {
+             JOptionPane.showMessageDialog(null,
+                "Introduce un periodo de Estancia",
+                "Error en la fecha",
+                JOptionPane.PLAIN_MESSAGE);
+        
+        }
+        
     }
-   
 }

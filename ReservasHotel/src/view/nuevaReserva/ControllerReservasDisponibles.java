@@ -5,11 +5,8 @@
  */
 package view.nuevaReserva;
 
-import enums.TipoEstancia;
-import enums.TipoHabitacion;
 import main.Start;
 import model.Reserva;
-import view.utils.DatePicker;
 
 /**
  *
@@ -27,14 +24,15 @@ class ControllerReservasDisponibles  extends AbstractControllerReservar{
     
     @Override
     public void buscar(){
-        vista.setJTableModel(Start.getHotel().buscarReservasDisponibles(getReservaActual()));
+        vista.setJTableModel(Start.getHotel().buscarReservasDisponibles(getReservaBusqueda()));
     }
 
     public void reservar() {
         if (vista.getJTableSelectedRow() >= 0){
-            Start.completarReserva(
-                    Start.getHotel().buscarReservasDisponibles(getReservaActual()).get(
-                            vista.getJTableSelectedRow()));
+            Reserva reservaFinal = Start.getHotel().buscarReservasDisponibles(getReservaBusqueda()).get(
+                            vista.getJTableSelectedRow());
+            reservaFinal.fijarPeriodo(getReservaBusqueda());
+            Start.completarReserva(reservaFinal);
         }
     }
 

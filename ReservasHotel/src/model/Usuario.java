@@ -73,8 +73,11 @@ public class Usuario {
     }
     
     public void addReserva(Reserva reserva){
-        reserva.setDisponible(false);
         getListaReservas().add(reserva);
+    }
+    
+    public void removeReserva(int i){
+        getListaReservas().remove(i);
     }
     
     public static String getUsernamesString(ArrayList<Usuario> listaUsuarios){

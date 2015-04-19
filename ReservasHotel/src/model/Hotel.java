@@ -84,6 +84,14 @@ public class Hotel {
         return listaReservasDisponibles;
     }
     
+    public void addReserva(Reserva reserva){
+        getListaReservas().add(reserva);
+    }
+    
+    public void removeReserva(Reserva reserva){
+        getListaReservas().remove(reserva);
+    }
+    
     public ArrayList<Reserva> buscarReservasDisponibles(Reserva reserva){
         ArrayList<Reserva> busqueda = new ArrayList<Reserva>();
         for (int i = 0; i < listaReservasDisponibles.size(); i++){

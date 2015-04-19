@@ -23,7 +23,6 @@ public class Reserva {
     private TipoEstancia tipoEstancia;
     private TipoHabitacion tipoHabitacion;
     private int plazas;
-    private boolean disponible;
     
     public static Reserva randReserva(){
         
@@ -31,11 +30,31 @@ public class Reserva {
 
         int ranEstancia = rand.nextInt(TipoEstancia.values().length);
         int ranHabitacion = rand.nextInt(TipoHabitacion.values().length);
-        int ranPlazas = rand.nextInt(2)+1;
+        TipoHabitacion tipoHabitacion = TipoHabitacion.values()[ranHabitacion];
+        
+        int ranPlazas;
+
+        switch(tipoHabitacion){
+            case INDIVIDUAL : 
+                ranPlazas = 1;
+                break;
+                
+            case DOBLE_DE_USO_INDIVIDUAL:
+                ranPlazas = 1;
+                break;
+                
+            case DOBLE: ranPlazas = 2;
+                break;
+            
+            default:
+                ranPlazas = rand.nextInt(2)+1;
+                break;
+
+        }
         
         return new Reserva(Periodo.randomPeriodo()
                 ,TipoEstancia.values()[ranEstancia]
-                , TipoHabitacion.values()[ranHabitacion]
+                ,TipoHabitacion.values()[ranHabitacion]
                 ,ranPlazas
         );
     }
@@ -48,7 +67,6 @@ public class Reserva {
         this.tipoEstancia = tipoEstancia;
         this.tipoHabitacion = tipoHabitacion;
         this.plazas = plazas;
-        this.disponible = true;
     }
     
     public Reserva(){
@@ -83,7 +101,15 @@ public class Reserva {
         this.tipoEstancia = value;
     }
     
-    public void setTipoHabitacion (TipoHabitacion value){
+    public void setTipoHabitacion (TipoHabitacion value) throws IllegalArgumentException{
+        if (getPlazas() == 2 && value == TipoHabitacion.INDIVIDUAL){
+            throw new IllegalArgumentException("Las habitaciones individuales son para una plaza.");
+        } else if (getPlazas() == 1 && value == TipoHabitacion.DOBLE){
+            throw new IllegalArgumentException("Las habitaciones doblesson para dos plazas.");
+        } else if (getPlazas() == 2 && value == TipoHabitacion.DOBLE_DE_USO_INDIVIDUAL){
+            throw new IllegalArgumentException("Las habitaciones dobles de uso individual solo son para una plaza.");
+        }
+        
         this.tipoHabitacion = value;
     }
     public String getFechaEntradaString(){
@@ -102,13 +128,22 @@ public class Reserva {
         return getTipoHabitacion().toString();
     }
 
+    
+    public void fijarPeriodo(Reserva reserva){
+        setPeriodo(reserva.getPeriodo());
+    }
+    
+    public void setPeriodo(Periodo periodo){
+        this.periodo = periodo;
+    }
+    
+    
     public boolean coincide(Reserva reserva) {
         boolean coincide = false;
         
         if (getTipoEstancia().coincide(reserva.getTipoEstancia())
                 && getTipoHabitacion().coincide(reserva.getTipoHabitacion())
                 && getPeriodo().disponible(reserva.getPeriodo())
-                && isDisponible()
                 && caben(reserva.getPlazas())
                 ){
             coincide = true;
@@ -116,14 +151,6 @@ public class Reserva {
         
         return coincide;
     }
-
-    private boolean isDisponible() {
-        return disponible;
-    }
-
-    void setDisponible(boolean disponible) {
-        this.disponible = disponible;
-    }  
 
     public int getTipoEstanciaOrdinal() {
         try{
@@ -145,7 +172,15 @@ public class Reserva {
         return plazas;
     }
     
-    public void setPlazas(int value) {
+    public void setPlazas(int value) throws IllegalArgumentException{
+        if (getTipoHabitacion() == TipoHabitacion.INDIVIDUAL && value == 2){
+            throw new IllegalArgumentException("Las habitaciones individuales son para una plaza.");
+        } else if(getTipoHabitacion() == TipoHabitacion.DOBLE && value == 1) {
+            throw new IllegalArgumentException("Las habitaciones dobles son para dos plazas.");
+        } else if(getTipoHabitacion() == TipoHabitacion.DOBLE_DE_USO_INDIVIDUAL && value == 2) {
+            throw new IllegalArgumentException("Las habitaciones dobles de uso individual solo son para una plaza.");
+
+        }
         this.plazas = value;
     }
 
@@ -155,5 +190,13 @@ public class Reserva {
         } else{
             return (getPlazas() == plazas);
         }
+    }
+
+    public Object[] toArraySinFechas() {
+        Object[] objectArray = {getTipoEstanciaString()
+                , getTipoHabitacionString()
+                , getPlazas()
+        };
+        return objectArray;
     }
 }

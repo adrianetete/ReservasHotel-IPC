@@ -105,4 +105,8 @@ String time;
         }
         return time;
     }
+
+    public boolean fijado() {
+        return !((getInicio() == null) || (getFin() == null));
+    }
 }

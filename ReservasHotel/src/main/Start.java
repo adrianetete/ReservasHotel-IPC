@@ -134,7 +134,7 @@ public class Start {
 
     public static void completarReserva(Reserva reserva) {
         getUsuario().addReserva(reserva);
-        getHotel().getListaReservas().remove(reserva);
+        getHotel().removeReserva(reserva);
         crearReservaState.cancelar();
     }
 }

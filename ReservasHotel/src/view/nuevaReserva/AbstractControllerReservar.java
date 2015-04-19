@@ -18,84 +18,99 @@ import view.utils.DatePicker;
  * @author garciparedes
  */
 public abstract class AbstractControllerReservar {
-    private Reserva reserva;
+    private Reserva reservaBusqueda;
     private VistaReservaInterface vistaInterface;
 
     //private VistaReservaInterface vista;
     
     public AbstractControllerReservar(VistaReservaInterface vista, Reserva reserva){
         this.vistaInterface = vista;
-        this.reserva = reserva;      
+        this.reservaBusqueda = reserva;      
     }
     
-    public Reserva getReservaActual(){
-        return reserva;
+    public Reserva getReservaBusqueda(){
+        return reservaBusqueda;
     }
 
     public void setFechaEntrada(){
         try {
-            reserva.getPeriodo().setInicio(
+            reservaBusqueda.getPeriodo().setInicio(
                     new DatePicker().setPickedDate()
             );
 
             vistaInterface.setJlabelFechaEntradaString(
-                    reserva.getPeriodo().getFechaEntradaString()
+                    reservaBusqueda.getPeriodo().getFechaEntradaString()
             );
         } catch(IllegalArgumentException e){
             JOptionPane.showMessageDialog((JFrame) vistaInterface,
-            e.getMessage(),
-            "Error en la fecha",
-            JOptionPane.PLAIN_MESSAGE);
+                e.getMessage(),
+                "Error en la fecha",
+                JOptionPane.PLAIN_MESSAGE);
         }
     }
     
     public void setFechaSalida(){
         try{
-            reserva.getPeriodo().setFin(
+            reservaBusqueda.getPeriodo().setFin(
                     new DatePicker().setPickedDate()
             );
             
             
             vistaInterface.setJlabelFechaSalidaString(
-                    reserva.getPeriodo().getFechaSalidaString()
+                    reservaBusqueda.getPeriodo().getFechaSalidaString()
             );
             
         } catch(IllegalArgumentException e){
             JOptionPane.showMessageDialog((JFrame) vistaInterface,
-            e.getMessage(),
-            "Error en la fecha",
-            JOptionPane.PLAIN_MESSAGE);
+                e.getMessage(),
+                "Error en la fecha",
+                JOptionPane.PLAIN_MESSAGE);
         }
     }
     
     public void setTipoEstancia(){
         
         try{
-            reserva.setTipoEstancia(
+            reservaBusqueda.setTipoEstancia(
                     TipoEstancia.values()[vistaInterface.getJComboBoxEstancia()-1]
             );
         } catch(ArrayIndexOutOfBoundsException e){
-            reserva.setTipoEstancia(null);
+            reservaBusqueda.setTipoEstancia(null);
         }
     }
     
     public void setTipoHabitacion(){
         try {
-            reserva.setTipoHabitacion(
+            reservaBusqueda.setTipoHabitacion(
                 TipoHabitacion.values()[vistaInterface.getJComboBoxHabitacion()-1]
             );
         } catch(ArrayIndexOutOfBoundsException e){
-            reserva.setTipoHabitacion(null);
+            reservaBusqueda.setTipoHabitacion(null);
+            
+        } catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog((JFrame) vistaInterface,
+                e.getMessage(),
+                "Error en el tipo de Habitacion",
+                JOptionPane.PLAIN_MESSAGE);
         }
-        
+        vistaInterface.setJComboBoxHabitacionIndex(reservaBusqueda.getTipoHabitacionOrdinal()+1);
+
     }
     
     void setPlazas() {
-        reserva.setPlazas(
-                vistaInterface.getJComboBoxPlazas()
-        );
+        try{
+            reservaBusqueda.setPlazas(
+                    vistaInterface.getJComboBoxPlazas()
+            );
 
-        
+        } catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog((JFrame) vistaInterface,
+                e.getMessage(),
+                "Error en el Nº plazas",
+                JOptionPane.PLAIN_MESSAGE);
+        }
+        vistaInterface.setJComboBoxPlazasIndex(reservaBusqueda.getPlazas());
+
     }
     
     public abstract void buscar();

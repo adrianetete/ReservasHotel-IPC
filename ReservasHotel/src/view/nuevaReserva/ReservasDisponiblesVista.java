@@ -14,6 +14,7 @@ import javax.swing.ListSelectionModel;
 import main.Start;
 import model.Reserva;
 import view.utils.TableModel;
+import view.utils.TableModelDisponibles;
 
 /**
  *
@@ -331,7 +332,7 @@ public class ReservasDisponiblesVista extends javax.swing.JFrame
 
     public void setJTableModel(ArrayList<Reserva> listaReservas){
         jTableAlojamientoDisponible.setModel(
-                new TableModel(listaReservas)
+                new TableModelDisponibles(listaReservas)
         );
     }
     public void setJlabelFechaEntradaString(String value){
